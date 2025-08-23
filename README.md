@@ -23,7 +23,7 @@
 
 ## 📋 Descripción del Proyecto
 
-Bootcamp intensivo de desarrollo de **APIs REST con Express.js** dirigido a aprendices de Tecnólogo en Desarrollo de Software (III trimestre). El programa tiene una duración de **11 semanas** con sesiones semanales de **6 horas exactas** (incluyendo break de 30 min), enfocado en la aplicación de mejores prácticas y desarrollo de software de **calidad total** con enfoque en conceptos fundamentales.
+Bootcamp intensivo de desarrollo de **APIs REST con Express.js** dirigido a aprendices de Tecnólogo en Desarrollo de Software (III trimestre). El programa tiene una duración de **10 semanas** con sesiones semanales de **6 horas exactas** (incluyendo break de 30 min), enfocado en la aplicación de mejores prácticas y desarrollo de software de **calidad total** con enfoque en conceptos fundamentales.
 
 ## 🚨 **ESTADO ACTUAL DEL BOOTCAMP**
 
@@ -38,13 +38,12 @@ Bootcamp intensivo de desarrollo de **APIs REST con Express.js** dirigido a apre
 - **✅ Semana 7**: Autenticación Básica
 - **✅ Semana 8**: Testing y Calidad
 - **✅ Semana 9**: Containerización con Docker
-- **✅ Semana 10**: API Avanzada (WebSockets, Background Tasks, SSE)
-- **✅ Semana 11**: Proyecto Final Integrador (Portfolio, Presentación, Entrega)
+- **✅ Semana 10**: Proyecto Final Integrador (Portfolio, Testing Avanzado, Deployment)
 - **✅ Gamificación**: [Sistema completo de incentivos y logros](./_docs/guides/gamification-strategy.md)
 
 ### 🔄 **En Proceso de Depuración**
 
-- **📅 Próximas actualizaciones**: Bootcamp completado en 11 semanas
+- **📅 Próximas actualizaciones**: Bootcamp completado en 10 semanas
 - **📅 Próximas actualizaciones**: Las semanas se irán publicando conforme se complete su depuración
 
 ### 📢 **Importante**
@@ -363,10 +362,9 @@ pnpm run dev
 | 7      | ✅ Publicada | Autenticación Básica         | JWT, Security, Authentication      |
 | 8      | ✅ Publicada | Testing y Calidad            | Jest, Supertest, Coverage          |
 | 9      | ✅ Publicada | Containerización con Docker  | Docker, Compose, CI/CD, Monitoring |
-| 10     | ✅ Publicada | API Avanzada                 | WebSockets, Background Tasks, SSE  |
-| 11     | ✅ Publicada | Proyecto Final - Integración | Portfolio, Presentación, Demo      |
+| 10     | ✅ Publicada | Proyecto Final Integrador    | Portfolio, Testing Avanzado, Deployment |
 
-> **Nota**: Las semanas 1-11 están completamente depuradas y protegidas. El bootcamp está completo con 11 semanas de contenido de alta calidad.
+> **Nota**: Las semanas 1-10 están completamente depuradas y protegidas. El bootcamp está completo con 10 semanas de contenido de alta calidad.
 
 ## 📚 Documentación Adicional
 

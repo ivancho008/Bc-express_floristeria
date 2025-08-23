@@ -4,7 +4,7 @@
 
 - ⏰ **6 horas semanales exactas** (intocable)
 - 👥 **Aprendices con conocimiento básico de JavaScript**
-- 🎯 **11 semanas totales = 66 horas**
+- 🎯 **10 semanas totales = 60 horas**
 - ✅ **Expectativas realistas y alcanzables**
 
 ---
@@ -206,17 +206,14 @@ project-week2/
 
 ### **Semana 10: Frontend Integration + HATEOAS Práctica (6h)**
 
-- ✅ CORS y configuración
+### **Semana 10: Proyecto Final - API REST Completa + Frontend Integration (6h)**
+
+- ✅ CORS y configuración para frontend
 - ✅ Servir archivos estáticos con Express
-- ✅ Integración con React + Vite
-- ✅ **Implementación práctica de HATEOAS**
-- _Simplificado de semana 8 original_
-
-### **Semana 11: Proyecto Final - API REST Completa (6h)**
-
-- ✅ Finalización del proyecto integrador
 - ✅ **Implementación completa de HATEOAS** en proyecto final
 - ✅ API REST nivel 3 (Richardson Maturity Model)
+- ✅ Integración con frontend básico
+- ✅ Testing avanzado y documentación
 - ✅ Presentaciones técnicas del proyecto
 - ✅ Evaluación final y cierre del bootcamp
 
@@ -277,11 +274,13 @@ const addHateoas = (baseUrl) => (req, res, next) => {
 };
 ```
 
-#### **Semana 11: Proyecto Final**
+#### **Semana 10: Proyecto Final Integrador**
 
 - **API REST completa** con HATEOAS
 - **Navegabilidad total** entre recursos
 - **Autodocumentación** de capacidades
+- **Integración frontend básica**
+- **Testing avanzado** y documentación
 - **Ventaja competitiva** en portfolio
 
 ### **Beneficios para Graduados:**
