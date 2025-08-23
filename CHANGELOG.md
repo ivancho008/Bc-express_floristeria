@@ -14,11 +14,36 @@ y este proyecto adhiere al [Versionado Semántico](https://semver.org/spec/v2.0.
 - Sistema de badges automatizado
 - Integración con Discord bot
 
+## [1.1.0] - 2025-08-22
+
+### Changed
+
+- ✅ **Duración ajustada**: Bootcamp ahora es de **10 semanas exactas** (60 horas totales)
+- ✅ **Semana 10 expandida**: Proyecto final integrador con frontend + HATEOAS completo
+- ✅ **Documentación reorganizada**: Archivos técnicos movidos a `_docs/`
+- ✅ **Raíz limpia**: Solo archivos estrictamente necesarios en raíz del proyecto
+
+### Removed
+
+- ❌ **Semana 11**: Eliminada para cumplir estándar de 10 semanas
+- ❌ **Archivos técnicos en raíz**: Movidos a `_docs/` para mejor organización
+
+### Technical Details
+
+- **Nueva duración**: 10 semanas × 6 horas = 60 horas totales
+- **Semana 10**: Combina proyecto final + frontend integration + testing avanzado
+- **Archivos movidos a `_docs/`**:
+  - `EVALUACION_CUMPLIMIENTO_TEMPLATE.md`
+  - `EVALUACION_PLAN_DETALLADO.md`
+  - `OPTIMIZACION_TEMA_DARK.md`
+  - `SOLUCION_AUTOCOMMIT.md`
+  - `VALIDACION_TEMPLATE_AUTOMATICA.md`
+
 ## [1.0.0] - 2025-08-19
 
 ### Added
 
-- ✅ **Bootcamp completo**: 11 semanas de contenido estructurado
+- ✅ **Bootcamp completo**: 10 semanas de contenido estructurado
 - ✅ **Stack tecnológico**: Express.js, TypeScript, Node.js, PostgreSQL
 - ✅ **Documentación completa**: README, Contributing, Code of Conduct
 - ✅ **Sistema de gamificación**: Badges, puntos, equipos colaborativos
@@ -45,7 +70,7 @@ y este proyecto adhiere al [Versionado Semántico](https://semver.org/spec/v2.0.
 
 ### Educational Features
 
-- **Duration**: 11 semanas × 6 horas semanales
+- **Duration**: 10 semanas × 6 horas semanales
 - **Methodology**: Bootcamp intensivo con enfoque práctico
 - **Evaluation**: Sistema de rúbricas detalladas
 - **Progression**: Proyectos que construyen sobre conocimientos previos
@@ -167,5 +192,5 @@ Este proyecto usa [Semantic Versioning](https://semver.org/):
 ---
 
 **Mantenido por**: Equipo bc-express  
-**Última actualización**: 2025-08-19  
+**Última actualización**: 2025-08-22  
 **Próxima release**: 1.1.0 (estimada para octubre 2025)

@@ -2248,3 +2248,47 @@ Auto-committed by bc-express automation[0m
 [2025-08-22 21:35:00] [INFO] Changes detected, proceeding with auto-commit
 [2025-08-22 21:35:00] [INFO] Changes detected, proceeding with auto-commit
 [0;34mℹ️  Changes detected, proceeding with auto-commit[0m
+[main 7a45e2b] docs: update documentation
+ 9 files changed, 44 insertions(+), 17 deletions(-)
+ rename EVALUACION_CUMPLIMIENTO_TEMPLATE.md => _docs/EVALUACION_CUMPLIMIENTO_TEMPLATE.md (100%)
+ rename EVALUACION_PLAN_DETALLADO.md => _docs/EVALUACION_PLAN_DETALLADO.md (100%)
+ rename OPTIMIZACION_TEMA_DARK.md => _docs/OPTIMIZACION_TEMA_DARK.md (100%)
+ rename SOLUCION_AUTOCOMMIT.md => _docs/SOLUCION_AUTOCOMMIT.md (100%)
+ rename VALIDACION_TEMPLATE_AUTOMATICA.md => _docs/VALIDACION_TEMPLATE_AUTOMATICA.md (100%)
+ rename test-autocommit.md => _docs/test-autocommit.md (100%)
+[2025-08-22 21:35:00] [SUCCESS] Auto-commit successful: docs: update documentation
+
+Auto-committed by bc-express automation
+[2025-08-22 21:35:00] [SUCCESS] Auto-commit successful: docs: update documentation
+
+Auto-committed by bc-express automation
+[0;32m✅ Auto-commit successful: docs: update documentation
+
+Auto-committed by bc-express automation[0m
+[2025-08-22 21:35:00] [INFO] Auto-commit process completed
+[2025-08-22 21:35:00] [INFO] Auto-commit process completed
+[0;34mℹ️  Auto-commit process completed[0m
+[2025-08-23 12:30:00] [INFO] Starting auto-commit process for bc-express
+[2025-08-23 12:30:00] [INFO] Starting auto-commit process for bc-express
+[0;34mℹ️  Starting auto-commit process for bc-express[0m
+[2025-08-23 12:30:00] [INFO] No changes detected, skipping commit
+[2025-08-23 12:30:00] [INFO] No changes detected, skipping commit
+[0;34mℹ️  No changes detected, skipping commit[0m
+[2025-08-23 12:30:00] [INFO] Auto-commit process completed
+[2025-08-23 12:30:00] [INFO] Auto-commit process completed
+[0;34mℹ️  Auto-commit process completed[0m
+[2025-08-23 12:35:01] [INFO] Starting auto-commit process for bc-express
+[2025-08-23 12:35:01] [INFO] Starting auto-commit process for bc-express
+[0;34mℹ️  Starting auto-commit process for bc-express[0m
+[2025-08-23 12:35:01] [INFO] No changes detected, skipping commit
+[2025-08-23 12:35:01] [INFO] No changes detected, skipping commit
+[0;34mℹ️  No changes detected, skipping commit[0m
+[2025-08-23 12:35:01] [INFO] Auto-commit process completed
+[2025-08-23 12:35:01] [INFO] Auto-commit process completed
+[0;34mℹ️  Auto-commit process completed[0m
+[2025-08-23 12:40:00] [INFO] Starting auto-commit process for bc-express
+[2025-08-23 12:40:00] [INFO] Starting auto-commit process for bc-express
+[0;34mℹ️  Starting auto-commit process for bc-express[0m
+[2025-08-23 12:40:00] [INFO] Changes detected, proceeding with auto-commit
+[2025-08-23 12:40:00] [INFO] Changes detected, proceeding with auto-commit
+[0;34mℹ️  Changes detected, proceeding with auto-commit[0m

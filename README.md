@@ -351,17 +351,17 @@ pnpm run dev
 
 ## 📋 Cronograma del Bootcamp
 
-| Semana | Estado       | Tema Principal               | Tecnologías                        |
-| ------ | ------------ | ---------------------------- | ---------------------------------- |
-| 1      | ✅ Publicada | Fundamentos y Configuración  | Node.js, Express.js, Git, Docker   |
-| 2      | ✅ Publicada | Express.js Fundamentals      | TypeScript, Swagger, Validation    |
-| 3      | ✅ Publicada | Validación y Estructura REST | Joi/Zod, HTTP Errors               |
-| 4      | ✅ Publicada | Bases de Datos con Express   | Prisma, TypeORM, PostgreSQL        |
-| 5      | ✅ Publicada | Autenticación y Autorización | JWT, OAuth2, Security, Roles       |
-| 6      | ✅ Publicada | CRUD Completo                | Advanced ORM, Relations            |
-| 7      | ✅ Publicada | Autenticación Básica         | JWT, Security, Authentication      |
-| 8      | ✅ Publicada | Testing y Calidad            | Jest, Supertest, Coverage          |
-| 9      | ✅ Publicada | Containerización con Docker  | Docker, Compose, CI/CD, Monitoring |
+| Semana | Estado       | Tema Principal               | Tecnologías                             |
+| ------ | ------------ | ---------------------------- | --------------------------------------- |
+| 1      | ✅ Publicada | Fundamentos y Configuración  | Node.js, Express.js, Git, Docker        |
+| 2      | ✅ Publicada | Express.js Fundamentals      | TypeScript, Swagger, Validation         |
+| 3      | ✅ Publicada | Validación y Estructura REST | Joi/Zod, HTTP Errors                    |
+| 4      | ✅ Publicada | Bases de Datos con Express   | Prisma, TypeORM, PostgreSQL             |
+| 5      | ✅ Publicada | Autenticación y Autorización | JWT, OAuth2, Security, Roles            |
+| 6      | ✅ Publicada | CRUD Completo                | Advanced ORM, Relations                 |
+| 7      | ✅ Publicada | Autenticación Básica         | JWT, Security, Authentication           |
+| 8      | ✅ Publicada | Testing y Calidad            | Jest, Supertest, Coverage               |
+| 9      | ✅ Publicada | Containerización con Docker  | Docker, Compose, CI/CD, Monitoring      |
 | 10     | ✅ Publicada | Proyecto Final Integrador    | Portfolio, Testing Avanzado, Deployment |
 
 > **Nota**: Las semanas 1-10 están completamente depuradas y protegidas. El bootcamp está completo con 10 semanas de contenido de alta calidad.

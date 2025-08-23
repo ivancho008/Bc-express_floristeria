@@ -74,8 +74,7 @@ assets/
 │       ├── week-07.{svg,png} ✅
 │       ├── week-08.{svg,png} ✅
 │       ├── week-09.{svg,png} ✅
-│       ├── week-10.{svg,png} ✅
-│       └── week-11.{svg,png} ✅
+│       └── week-10.{svg,png} ✅
 ├── screenshots/ (preparado)
 ├── README.md ✅
 └── ASSETS_SUMMARY.md ✅

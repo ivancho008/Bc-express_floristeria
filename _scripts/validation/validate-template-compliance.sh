@@ -104,7 +104,7 @@ week_structure=(
     "5-recursos:Recursos adicionales"
 )
 
-for week in {01..11}; do
+for week in {01..10}; do
     echo "### Semana $week:" >> "$REPORT_FILE"
     week_passed=0
     week_total=0
