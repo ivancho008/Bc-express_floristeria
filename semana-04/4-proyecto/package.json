@@ -1,0 +1,22 @@
+{
+  "name": "semana4-validacion-estructura",
+  "version": "1.0.0",
+  "description": "Proyecto Semana 4: API con validación Joi y estructura MVC",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "node src/test-manual.js"
+  },
+  "keywords": ["express", "joi", "validation", "mvc", "api"],
+  "author": "Estudiante SENA",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "joi": "^17.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
