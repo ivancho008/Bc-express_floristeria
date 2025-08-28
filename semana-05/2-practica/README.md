@@ -31,6 +31,7 @@ npx prisma init --datasource-provider sqlite
 ```
 
 **📝 Verificación:**
+
 - [ ] `package.json` creado
 - [ ] Dependencias instaladas
 - [ ] Prisma inicializado
@@ -76,6 +77,7 @@ PORT=3000
 ```
 
 **📝 Verificación:**
+
 - [ ] Schema definido correctamente
 - [ ] Variables de entorno configuradas
 
@@ -93,6 +95,7 @@ npx prisma studio
 ```
 
 **📝 Verificación:**
+
 - [ ] Archivo `dev.db` creado
 - [ ] Migración aplicada
 - [ ] Prisma Studio funcionando
@@ -117,7 +120,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({
     message: 'Blog API - Semana 5',
-    status: 'OK'
+    status: 'OK',
   });
 });
 
@@ -133,6 +136,7 @@ npm run dev
 ```
 
 **📝 Verificación:**
+
 - [ ] Servidor inicia sin errores
 - [ ] Ruta raíz responde correctamente
 
@@ -172,6 +176,7 @@ app.use('/api/users', userRoutes);
 ```
 
 **📝 Verificación:**
+
 - [ ] Rutas definidas
 - [ ] Rutas montadas en app principal
 
@@ -185,33 +190,33 @@ const prisma = new PrismaClient();
 const createUser = async (req, res) => {
   try {
     const { name, email } = req.body;
-    
+
     // Validaciones básicas
     if (!name || !email) {
       return res.status(400).json({
         success: false,
-        error: 'Nombre y email son requeridos'
+        error: 'Nombre y email son requeridos',
       });
     }
 
     const user = await prisma.user.create({
-      data: { name, email }
+      data: { name, email },
     });
 
     res.status(201).json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     if (error.code === 'P2002') {
       return res.status(400).json({
         success: false,
-        error: 'Email ya registrado'
+        error: 'Email ya registrado',
       });
     }
     res.status(500).json({
       success: false,
-      error: 'Error interno del servidor'
+      error: 'Error interno del servidor',
     });
   }
 };
@@ -220,6 +225,7 @@ module.exports = { createUser };
 ```
 
 **🧪 Testing:**
+
 ```bash
 curl -X POST http://localhost:3000/api/users \
   -H "Content-Type: application/json" \
@@ -235,25 +241,26 @@ const getAllUsers = async (req, res) => {
     const users = await prisma.user.findMany({
       include: {
         posts: {
-          select: { id: true, title: true, published: true }
-        }
-      }
+          select: { id: true, title: true, published: true },
+        },
+      },
     });
 
     res.json({
       success: true,
-      data: users
+      data: users,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: 'Error al obtener usuarios'
+      error: 'Error al obtener usuarios',
     });
   }
 };
 ```
 
 **🧪 Testing:**
+
 ```bash
 curl http://localhost:3000/api/users
 ```
@@ -270,36 +277,37 @@ const getUserById = async (req, res) => {
     if (isNaN(userId)) {
       return res.status(400).json({
         success: false,
-        error: 'ID inválido'
+        error: 'ID inválido',
       });
     }
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      include: { posts: true }
+      include: { posts: true },
     });
 
     if (!user) {
       return res.status(404).json({
         success: false,
-        error: 'Usuario no encontrado'
+        error: 'Usuario no encontrado',
       });
     }
 
     res.json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: 'Error al obtener usuario'
+      error: 'Error al obtener usuario',
     });
   }
 };
 ```
 
 **🧪 Testing:**
+
 ```bash
 curl http://localhost:3000/api/users/1
 curl http://localhost:3000/api/users/999  # No existe
@@ -322,7 +330,7 @@ const updateUser = async (req, res) => {
     if (isNaN(userId)) {
       return res.status(400).json({
         success: false,
-        error: 'ID inválido'
+        error: 'ID inválido',
       });
     }
 
@@ -332,35 +340,36 @@ const updateUser = async (req, res) => {
 
     const user = await prisma.user.update({
       where: { id: userId },
-      data: updateData
+      data: updateData,
     });
 
     res.json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     if (error.code === 'P2025') {
       return res.status(404).json({
         success: false,
-        error: 'Usuario no encontrado'
+        error: 'Usuario no encontrado',
       });
     }
     if (error.code === 'P2002') {
       return res.status(400).json({
         success: false,
-        error: 'Email ya en uso'
+        error: 'Email ya en uso',
       });
     }
     res.status(500).json({
       success: false,
-      error: 'Error al actualizar usuario'
+      error: 'Error al actualizar usuario',
     });
   }
 };
 ```
 
 **🧪 Testing:**
+
 ```bash
 curl -X PUT http://localhost:3000/api/users/1 \
   -H "Content-Type: application/json" \
@@ -379,34 +388,35 @@ const deleteUser = async (req, res) => {
     if (isNaN(userId)) {
       return res.status(400).json({
         success: false,
-        error: 'ID inválido'
+        error: 'ID inválido',
       });
     }
 
     await prisma.user.delete({
-      where: { id: userId }
+      where: { id: userId },
     });
 
     res.json({
       success: true,
-      message: 'Usuario eliminado correctamente'
+      message: 'Usuario eliminado correctamente',
     });
   } catch (error) {
     if (error.code === 'P2025') {
       return res.status(404).json({
         success: false,
-        error: 'Usuario no encontrado'
+        error: 'Usuario no encontrado',
       });
     }
     res.status(500).json({
       success: false,
-      error: 'Error al eliminar usuario'
+      error: 'Error al eliminar usuario',
     });
   }
 };
 ```
 
 **🧪 Testing:**
+
 ```bash
 curl -X DELETE http://localhost:3000/api/users/1
 ```
@@ -447,19 +457,19 @@ const createPost = async (req, res) => {
     if (!title || !content || !authorId) {
       return res.status(400).json({
         success: false,
-        error: 'Título, contenido y authorId requeridos'
+        error: 'Título, contenido y authorId requeridos',
       });
     }
 
     // Verificar que el autor existe
     const author = await prisma.user.findUnique({
-      where: { id: parseInt(authorId) }
+      where: { id: parseInt(authorId) },
     });
 
     if (!author) {
       return res.status(400).json({
         success: false,
-        error: 'Autor no existe'
+        error: 'Autor no existe',
       });
     }
 
@@ -468,19 +478,19 @@ const createPost = async (req, res) => {
         title,
         content,
         published: Boolean(published),
-        authorId: parseInt(authorId)
+        authorId: parseInt(authorId),
       },
-      include: { author: true }
+      include: { author: true },
     });
 
     res.status(201).json({
       success: true,
-      data: post
+      data: post,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: 'Error al crear post'
+      error: 'Error al crear post',
     });
   }
 };
@@ -491,6 +501,7 @@ const createPost = async (req, res) => {
 #### 🧪 Actividad 4.3: Testing Completo (15 min)
 
 **Crear datos de prueba:**
+
 ```bash
 # Crear usuarios
 curl -X POST http://localhost:3000/api/users \
@@ -514,22 +525,26 @@ curl http://localhost:3000/api/users/1/posts
 ## ✅ Entregables de la Práctica
 
 ### 1. **Código Funcional**
+
 - [ ] API con todos los endpoints CRUD
 - [ ] Validaciones implementadas
 - [ ] Error handling apropiado
 - [ ] Relaciones funcionando
 
 ### 2. **Base de Datos**
+
 - [ ] Modelos correctamente definidos
 - [ ] Migraciones aplicadas
 - [ ] Datos de prueba insertados
 
 ### 3. **Testing**
+
 - [ ] Todos los endpoints probados
 - [ ] Casos de error verificados
 - [ ] Relaciones validadas
 
 ### 4. **Documentación**
+
 - [ ] README con instrucciones
 - [ ] Ejemplos de uso
 - [ ] Estructura explicada
@@ -539,26 +554,30 @@ curl http://localhost:3000/api/users/1/posts
 ## 🚨 Troubleshooting Común
 
 ### Error: "Client not generated"
+
 ```bash
 npx prisma generate
 ```
 
 ### Error: "Database not found"
+
 ```bash
 npx prisma migrate dev
 ```
 
 ### Error: "Port already in use"
+
 ```bash
 # Cambiar puerto en .env
 PORT=3001
 ```
 
 ### Error de relación
+
 ```javascript
 // Verificar que authorId existe antes de crear post
 const author = await prisma.user.findUnique({
-  where: { id: authorId }
+  where: { id: authorId },
 });
 ```
 

@@ -8,8 +8,8 @@ const errorHandler = (error, req, res, next) => {
       success: false,
       error: {
         code: 'NOT_FOUND',
-        message: 'Recurso no encontrado'
-      }
+        message: 'Recurso no encontrado',
+      },
     });
   }
 
@@ -20,8 +20,8 @@ const errorHandler = (error, req, res, next) => {
       error: {
         code: 'VALIDATION_ERROR',
         message: 'Valor duplicado no permitido',
-        details: error.meta
-      }
+        details: error.meta,
+      },
     });
   }
 
@@ -31,8 +31,8 @@ const errorHandler = (error, req, res, next) => {
       success: false,
       error: {
         code: 'INVALID_JSON',
-        message: 'Formato JSON inválido'
-      }
+        message: 'Formato JSON inválido',
+      },
     });
   }
 
@@ -42,8 +42,9 @@ const errorHandler = (error, req, res, next) => {
     error: {
       code: 'INTERNAL_ERROR',
       message: 'Error interno del servidor',
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined
-    }
+      details:
+        process.env.NODE_ENV === 'development' ? error.message : undefined,
+    },
   });
 };
 

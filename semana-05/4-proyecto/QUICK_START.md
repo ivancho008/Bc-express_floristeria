@@ -3,25 +3,31 @@
 ## ⚡ Pasos para ejecutar el proyecto
 
 ### 1. Instalar dependencias
+
 ```bash
 npm install
 ```
 
 ### 2. Configurar variables de entorno
+
 ```bash
 cp .env.example .env
 ```
 
 ### 3. Configurar base de datos (automático)
+
 ```bash
 npm run setup
 ```
+
 Este comando ejecuta:
+
 - `prisma generate` - Genera el cliente de Prisma
 - `prisma migrate dev` - Aplica migraciones a la BD
 - `prisma seed` - Inserta datos de prueba
 
 ### 4. Iniciar servidor de desarrollo
+
 ```bash
 npm run dev
 ```
@@ -31,11 +37,13 @@ npm run dev
 ## 🧪 Probar la API
 
 ### Endpoints disponibles:
+
 - **GET** `http://localhost:3000` - Documentación de la API
 - **GET** `http://localhost:3000/api/users` - Listar usuarios
 - **GET** `http://localhost:3000/api/posts` - Listar posts
 
 ### Ejemplo con curl:
+
 ```bash
 # Crear un usuario
 curl -X POST http://localhost:3000/api/users \

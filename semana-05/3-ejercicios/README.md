@@ -11,6 +11,7 @@ Reforzar el aprendizaje mediante ejercicios prácticos que profundizan en concep
 ### 🔧 Parte A: Setup Inicial (15 min)
 
 **Instrucciones:**
+
 1. Crea un nuevo proyecto llamado `biblioteca-api`
 2. Configura Prisma con SQLite
 3. Define los siguientes modelos:
@@ -42,12 +43,14 @@ model Book {
 ### 📝 Parte B: Migraciones (15 min)
 
 **Tareas:**
+
 1. Aplica la migración inicial
 2. Agrega un campo `biography` a `Author`
 3. Crea una nueva migración para este cambio
 4. Verifica con Prisma Studio
 
 **📝 Entregable:**
+
 - [ ] Proyecto configurado
 - [ ] Modelos definidos
 - [ ] Migraciones aplicadas
@@ -101,7 +104,7 @@ async function testQueries() {
   const author1 = await createAuthor({
     name: 'Gabriel García Márquez',
     email: 'gabriel@example.com',
-    country: 'Colombia'
+    country: 'Colombia',
   });
 
   // Crear libros
@@ -110,7 +113,7 @@ async function testQueries() {
     isbn: '978-0307389732',
     publishYear: 1967,
     pages: 448,
-    authorId: author1.id
+    authorId: author1.id,
   });
 
   // Probar queries
@@ -120,6 +123,7 @@ async function testQueries() {
 ```
 
 **📝 Entregable:**
+
 - [ ] Script de queries funcional
 - [ ] Datos de prueba insertados
 - [ ] Resultados de testing documentados
@@ -154,6 +158,7 @@ Implementa estos endpoints además del CRUD básico:
 Implementa validaciones para:
 
 1. **Autor:**
+
    - Nombre mínimo 2 caracteres
    - Email válido y único
    - País de lista predefinida (opcional)
@@ -165,22 +170,24 @@ Implementa validaciones para:
    - Páginas mayor a 0 (si se proporciona)
 
 **Ejemplo de validación ISBN:**
+
 ```javascript
 function validateISBN(isbn) {
   // Eliminar guiones y espacios
   const cleanISBN = isbn.replace(/[-\s]/g, '');
-  
+
   // Verificar que son 13 dígitos
   if (!/^\d{13}$/.test(cleanISBN)) {
     return false;
   }
-  
+
   // Tu algoritmo de validación aquí
   return true;
 }
 ```
 
 **📝 Entregable:**
+
 - [ ] Endpoints especiales funcionando
 - [ ] Validaciones implementadas
 - [ ] Casos de error manejados
@@ -235,6 +242,7 @@ async function searchBooks(filters) {
 ```
 
 **📝 Entregable:**
+
 - [ ] Modelo Category agregado
 - [ ] Relación many-to-many configurada
 - [ ] Queries complejas funcionando
@@ -252,13 +260,13 @@ Optimiza estas queries problemáticas:
 // PROBLEMA: N+1 Query Problem
 async function getAllBooksWithAuthors() {
   const books = await prisma.book.findMany();
-  
+
   for (const book of books) {
     book.author = await prisma.author.findUnique({
-      where: { id: book.authorId }
+      where: { id: book.authorId },
     });
   }
-  
+
   return books;
 }
 
@@ -287,12 +295,13 @@ const prismaErrorHandler = (error, req, res, next) => {
       // Tu manejo aquí
       break;
     default:
-      // Tu manejo aquí
+    // Tu manejo aquí
   }
 };
 ```
 
 **📝 Entregable:**
+
 - [ ] Queries optimizadas
 - [ ] Middleware implementado
 - [ ] Error handling mejorado
@@ -305,6 +314,7 @@ const prismaErrorHandler = (error, req, res, next) => {
 ### 🌱 Parte A: Script de Seeding Avanzado (10 min)
 
 Crea `prisma/seed.js` que inserte:
+
 - 10 autores con datos realistas
 - 25 libros distribuidos entre autores
 - 5 categorías con libros asignados
@@ -312,11 +322,13 @@ Crea `prisma/seed.js` que inserte:
 ### 🧪 Parte B: Suite de Testing (10 min)
 
 Crea tests manuales para verificar:
+
 - Todos los endpoints funcionan
 - Validaciones atrapan errores
 - Relaciones son consistentes
 
 **📝 Entregable:**
+
 - [ ] Script de seeding completo
 - [ ] Base de datos poblada
 - [ ] Suite de testing documentada
@@ -326,21 +338,25 @@ Crea tests manuales para verificar:
 ## ✅ Criterios de Evaluación
 
 ### **Funcionalidad (40%)**
+
 - [ ] Todos los modelos funcionan correctamente
 - [ ] CRUD completo implementado
 - [ ] Relaciones funcionando
 
 ### **Código (30%)**
+
 - [ ] Código limpio y organizado
 - [ ] Validaciones apropiadas
 - [ ] Error handling robusto
 
 ### **Base de Datos (20%)**
+
 - [ ] Esquema bien diseñado
 - [ ] Migraciones aplicadas
 - [ ] Datos consistentes
 
 ### **Documentación (10%)**
+
 - [ ] README con instrucciones
 - [ ] Código comentado
 - [ ] Ejemplos de uso

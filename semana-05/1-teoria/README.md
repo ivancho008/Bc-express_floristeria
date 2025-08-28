@@ -185,7 +185,7 @@ const prisma = new PrismaClient();
 
 // Crear
 const user = await prisma.user.create({
-  data: { name: 'Juan', email: 'juan@example.com' }
+  data: { name: 'Juan', email: 'juan@example.com' },
 });
 
 // Leer
@@ -195,7 +195,7 @@ const user = await prisma.user.findUnique({ where: { id: 1 } });
 // Actualizar
 await prisma.user.update({
   where: { id: 1 },
-  data: { name: 'Juan Carlos' }
+  data: { name: 'Juan Carlos' },
 });
 
 // Eliminar
@@ -212,12 +212,12 @@ await prisma.user.delete({ where: { id: 1 } });
 // Usuario con sus posts
 const userWithPosts = await prisma.user.findUnique({
   where: { id: 1 },
-  include: { posts: true }
+  include: { posts: true },
 });
 
 // Post con su autor
 const postWithAuthor = await prisma.post.findMany({
-  include: { author: true }
+  include: { author: true },
 });
 
 // Seleccionar campos específicos
@@ -226,9 +226,9 @@ const users = await prisma.user.findMany({
     id: true,
     name: true,
     posts: {
-      select: { title: true, published: true }
-    }
-  }
+      select: { title: true, published: true },
+    },
+  },
 });
 ```
 
@@ -239,15 +239,15 @@ const users = await prisma.user.findMany({
 const publishedPosts = await prisma.post.findMany({
   where: {
     published: true,
-    author: { email: 'juan@example.com' }
-  }
+    author: { email: 'juan@example.com' },
+  },
 });
 
 // Usuarios con al menos un post
 const activeUsers = await prisma.user.findMany({
   where: {
-    posts: { some: {} }
-  }
+    posts: { some: {} },
+  },
 });
 ```
 
@@ -266,6 +266,7 @@ npx prisma migrate dev --name init
 ```
 
 Esto:
+
 1. Compara el esquema actual con la BD
 2. Genera SQL para los cambios
 3. Aplica los cambios
@@ -298,14 +299,14 @@ model User {
 ```javascript
 const createUser = async (req, res) => {
   const { name, email } = req.body;
-  
+
   // Validaciones básicas
   if (!name || name.length < 2) {
     return res.status(400).json({
-      error: 'Nombre requerido (mínimo 2 caracteres)'
+      error: 'Nombre requerido (mínimo 2 caracteres)',
     });
   }
-  
+
   try {
     const user = await prisma.user.create({ data: { name, email } });
     res.status(201).json(user);
@@ -313,7 +314,7 @@ const createUser = async (req, res) => {
     // Error de email duplicado
     if (error.code === 'P2002') {
       return res.status(400).json({
-        error: 'Email ya registrado'
+        error: 'Email ya registrado',
       });
     }
     res.status(500).json({ error: 'Error interno' });
@@ -338,6 +339,7 @@ npx prisma studio
 ```
 
 Abre una interfaz web para:
+
 - Ver datos de todas las tablas
 - Editar registros
 - Explorar relaciones

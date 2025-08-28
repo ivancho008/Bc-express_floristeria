@@ -8,7 +8,10 @@ const logger = (req, res, next) => {
   console.log(`[${timestamp}] ${method} ${url} - IP: ${ip}`);
 
   // Log del body para POST y PUT (solo en desarrollo)
-  if ((method === 'POST' || method === 'PUT') && process.env.NODE_ENV === 'development') {
+  if (
+    (method === 'POST' || method === 'PUT') &&
+    process.env.NODE_ENV === 'development'
+  ) {
     console.log('Body:', JSON.stringify(req.body, null, 2));
   }
 

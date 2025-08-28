@@ -39,15 +39,15 @@ app.get('/', (req, res) => {
       users: {
         base: '/api/users',
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        description: 'Gestión de usuarios'
+        description: 'Gestión de usuarios',
       },
       posts: {
         base: '/api/posts',
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        description: 'Gestión de posts'
-      }
+        description: 'Gestión de posts',
+      },
     },
-    documentation: 'Ver README.md para documentación completa'
+    documentation: 'Ver README.md para documentación completa',
   });
 });
 
@@ -65,8 +65,8 @@ app.use('*', (req, res) => {
     error: {
       code: 'NOT_FOUND',
       message: `Endpoint ${req.method} ${req.originalUrl} no encontrado`,
-      suggestion: 'Verifica la documentación de la API en /'
-    }
+      suggestion: 'Verifica la documentación de la API en /',
+    },
   });
 });
 
