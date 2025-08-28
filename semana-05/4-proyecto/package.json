@@ -1,0 +1,33 @@
+{
+  "name": "semana5-blog-api",
+  "version": "1.0.0",
+  "description": "API REST para blog básico con Express.js + Prisma + SQLite",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "db:migrate": "npx prisma migrate dev",
+    "db:generate": "npx prisma generate",
+    "db:studio": "npx prisma studio",
+    "db:reset": "npx prisma migrate reset"
+  },
+  "keywords": [
+    "express",
+    "prisma",
+    "sqlite",
+    "api",
+    "blog"
+  ],
+  "author": "Estudiante SENA",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "prisma": "^5.6.0",
+    "@prisma/client": "^5.6.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
