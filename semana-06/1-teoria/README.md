@@ -14,12 +14,14 @@
 ### Evolución del CRUD Básico
 
 **CRUD Básico (Semana 5):**
+
 ```
 User -> CRUD simple
 Post -> CRUD simple + relación básica
 ```
 
 **CRUD Completo (Semana 6):**
+
 ```
 User -> Roles + Perfiles + Preferencias
 Product -> Categorías + Inventario + Reviews
@@ -30,6 +32,7 @@ Category -> Jerarquías + Metadatos
 ### Patrones de Diseño CRUD
 
 #### 1. **Repository Pattern**
+
 Separa la lógica de acceso a datos de la lógica de negocio.
 
 ```javascript
@@ -38,26 +41,27 @@ class UserRepository {
   async findWithRoles(userId) {
     return await prisma.user.findUnique({
       where: { id: userId },
-      include: { 
+      include: {
         roles: true,
         profile: true,
-        orders: { include: { items: true } }
-      }
+        orders: { include: { items: true } },
+      },
     });
   }
-  
+
   async findByRoleAndStatus(role, status) {
     return await prisma.user.findMany({
       where: {
         roles: { some: { name: role } },
-        status: status
-      }
+        status: status,
+      },
     });
   }
 }
 ```
 
 #### 2. **Service Layer Pattern**
+
 Encapsula lógica de negocio compleja.
 
 ```javascript
@@ -67,23 +71,23 @@ class OrderService {
     // Validaciones de negocio
     await this.validateUserCanOrder(userId);
     await this.validateItemsAvailability(items);
-    
+
     // Transacción compleja
     return await prisma.$transaction(async (tx) => {
       const order = await tx.order.create({
-        data: { userId, status: 'pending' }
+        data: { userId, status: 'pending' },
       });
-      
+
       for (const item of items) {
         await tx.orderItem.create({
-          data: { orderId: order.id, ...item }
+          data: { orderId: order.id, ...item },
         });
         await tx.product.update({
           where: { id: item.productId },
-          data: { stock: { decrement: item.quantity } }
+          data: { stock: { decrement: item.quantity } },
         });
       }
-      
+
       return order;
     });
   }
@@ -97,6 +101,7 @@ class OrderService {
 ### Tipos de Relaciones Avanzadas
 
 #### **Relación Uno a Uno (1:1) - Extendida**
+
 Un usuario tiene un perfil único con configuraciones.
 
 ```prisma
@@ -126,6 +131,7 @@ model UserSettings {
 ```
 
 #### **Relación Uno a Muchos (1:N) - Jerarquías**
+
 Categorías con subcategorías (auto-referencia).
 
 ```prisma
@@ -140,6 +146,7 @@ model Category {
 ```
 
 #### **Relación Muchos a Muchos (N:M) - Tabla Intermedia**
+
 Productos con múltiples categorías y metadatos adicionales.
 
 ```prisma
@@ -162,10 +169,10 @@ model ProductCategory {
   featured   Boolean  @default(false)  // Metadato adicional
   order      Int?                       // Orden en la categoría
   createdAt  DateTime @default(now())
-  
+
   product    Product  @relation(fields: [productId], references: [id])
   category   Category @relation(fields: [categoryId], references: [id])
-  
+
   @@unique([productId, categoryId])
 }
 ```
@@ -180,26 +187,26 @@ const productWithEverything = await prisma.product.findUnique({
   where: { id: 1 },
   include: {
     categories: {
-      include: { category: true }
+      include: { category: true },
     },
     reviews: {
-      include: { user: { select: { name: true } } }
+      include: { user: { select: { name: true } } },
     },
     images: true,
-    variants: true
-  }
+    variants: true,
+  },
 });
 
 // Lazy Loading - Carga bajo demanda
 const product = await prisma.product.findUnique({
-  where: { id: 1 }
+  where: { id: 1 },
 });
 
 // Solo si necesitamos las categorías
 if (needCategories) {
   product.categories = await prisma.productCategory.findMany({
     where: { productId: 1 },
-    include: { category: true }
+    include: { category: true },
   });
 }
 ```
@@ -223,28 +230,28 @@ const searchProducts = async (filters) => {
     sortBy = 'createdAt',
     sortOrder = 'desc',
     page = 1,
-    limit = 10
+    limit = 10,
   } = filters;
 
   const where = {
     ...(name && {
-      name: { contains: name, mode: 'insensitive' }
+      name: { contains: name, mode: 'insensitive' },
     }),
     ...(categoryIds?.length && {
       categories: {
         some: {
-          categoryId: { in: categoryIds }
-        }
-      }
+          categoryId: { in: categoryIds },
+        },
+      },
     }),
     ...(minPrice && { price: { gte: minPrice } }),
     ...(maxPrice && { price: { lte: maxPrice } }),
     ...(inStock && { stock: { gt: 0 } }),
     ...(featured && {
       categories: {
-        some: { featured: true }
-      }
-    })
+        some: { featured: true },
+      },
+    }),
   };
 
   const [products, total] = await prisma.$transaction([
@@ -252,15 +259,15 @@ const searchProducts = async (filters) => {
       where,
       include: {
         categories: {
-          include: { category: true }
+          include: { category: true },
         },
-        _count: { select: { reviews: true } }
+        _count: { select: { reviews: true } },
       },
       orderBy: { [sortBy]: sortOrder },
       skip: (page - 1) * limit,
-      take: limit
+      take: limit,
     }),
-    prisma.product.count({ where })
+    prisma.product.count({ where }),
   ]);
 
   return {
@@ -269,8 +276,8 @@ const searchProducts = async (filters) => {
       page,
       limit,
       total,
-      pages: Math.ceil(total / limit)
-    }
+      pages: Math.ceil(total / limit),
+    },
   };
 };
 ```
@@ -283,47 +290,47 @@ const getDashboardStats = async () => {
   const stats = await prisma.$transaction([
     // Total de usuarios activos
     prisma.user.count({
-      where: { status: 'active' }
+      where: { status: 'active' },
     }),
-    
+
     // Productos por categoría
     prisma.category.findMany({
       select: {
         name: true,
         _count: {
-          select: { products: true }
-        }
-      }
+          select: { products: true },
+        },
+      },
     }),
-    
+
     // Ventas del último mes
     prisma.order.aggregate({
       where: {
         createdAt: {
-          gte: new Date(new Date().setMonth(new Date().getMonth() - 1))
-        }
+          gte: new Date(new Date().setMonth(new Date().getMonth() - 1)),
+        },
       },
       _sum: { total: true },
       _count: true,
-      _avg: { total: true }
+      _avg: { total: true },
     }),
-    
+
     // Top productos más vendidos
     prisma.orderItem.groupBy({
       by: ['productId'],
       _sum: { quantity: true },
       orderBy: {
-        _sum: { quantity: 'desc' }
+        _sum: { quantity: 'desc' },
       },
-      take: 5
-    })
+      take: 5,
+    }),
   ]);
 
   return {
     activeUsers: stats[0],
     productsByCategory: stats[1],
     salesLastMonth: stats[2],
-    topProducts: stats[3]
+    topProducts: stats[3],
   };
 };
 ```
@@ -335,6 +342,7 @@ const getDashboardStats = async () => {
 ### Validaciones Multi-Nivel
 
 #### **Nivel 1: Esquema de Base de Datos**
+
 ```prisma
 model Order {
   id        Int      @id @default(autoincrement())
@@ -342,66 +350,74 @@ model Order {
   status    String   @default("pending") // pending, confirmed, shipped, delivered
   userId    Int
   createdAt DateTime @default(now())
-  
+
   user      User       @relation(fields: [userId], references: [id])
   items     OrderItem[]
-  
+
   @@check([total >= 0]) // No puede ser negativo
 }
 ```
 
 #### **Nivel 2: Validación de Entrada (DTO)**
+
 ```javascript
 const Joi = require('joi');
 
 const createOrderSchema = Joi.object({
   userId: Joi.number().integer().positive().required(),
-  items: Joi.array().items(
-    Joi.object({
-      productId: Joi.number().integer().positive().required(),
-      quantity: Joi.number().integer().min(1).max(100).required(),
-      price: Joi.number().positive().precision(2).required()
-    })
-  ).min(1).max(20).required(),
+  items: Joi.array()
+    .items(
+      Joi.object({
+        productId: Joi.number().integer().positive().required(),
+        quantity: Joi.number().integer().min(1).max(100).required(),
+        price: Joi.number().positive().precision(2).required(),
+      })
+    )
+    .min(1)
+    .max(20)
+    .required(),
   shippingAddress: Joi.object({
     street: Joi.string().min(5).max(100).required(),
     city: Joi.string().min(2).max(50).required(),
-    zipCode: Joi.string().pattern(/^\d{5}$/).required()
-  }).required()
+    zipCode: Joi.string()
+      .pattern(/^\d{5}$/)
+      .required(),
+  }).required(),
 });
 ```
 
 #### **Nivel 3: Lógica de Negocio**
+
 ```javascript
 class OrderValidationService {
   async validateOrderCreation(orderData) {
     const { userId, items } = orderData;
-    
+
     // 1. Verificar que el usuario existe y está activo
     const user = await prisma.user.findUnique({
-      where: { id: userId }
+      where: { id: userId },
     });
-    
+
     if (!user || user.status !== 'active') {
       throw new BusinessLogicError('Usuario no válido o inactivo');
     }
-    
+
     // 2. Verificar disponibilidad de productos
     for (const item of items) {
       const product = await prisma.product.findUnique({
-        where: { id: item.productId }
+        where: { id: item.productId },
       });
-      
+
       if (!product) {
         throw new BusinessLogicError(`Producto ${item.productId} no existe`);
       }
-      
+
       if (product.stock < item.quantity) {
         throw new BusinessLogicError(
           `Stock insuficiente para ${product.name}. Disponible: ${product.stock}`
         );
       }
-      
+
       // 3. Verificar que el precio no ha cambiado
       if (Math.abs(product.price - item.price) > 0.01) {
         throw new BusinessLogicError(
@@ -409,21 +425,21 @@ class OrderValidationService {
         );
       }
     }
-    
+
     // 4. Verificar límites del usuario
     const userOrdersThisMonth = await prisma.order.count({
       where: {
         userId,
         createdAt: {
-          gte: new Date(new Date().setDate(1)) // Primer día del mes
-        }
-      }
+          gte: new Date(new Date().setDate(1)), // Primer día del mes
+        },
+      },
     });
-    
+
     if (userOrdersThisMonth >= 10) {
       throw new BusinessLogicError('Límite de órdenes mensuales alcanzado');
     }
-    
+
     return true;
   }
 }
@@ -451,11 +467,11 @@ const handleBusinessLogicError = (error, req, res, next) => {
         type: 'BUSINESS_LOGIC_ERROR',
         code: error.code,
         message: error.message,
-        timestamp: new Date().toISOString()
-      }
+        timestamp: new Date().toISOString(),
+      },
     });
   }
-  
+
   next(error);
 };
 ```
@@ -474,9 +490,9 @@ model Product {
   categoryId  Int
   status      String
   createdAt   DateTime @default(now())
-  
+
   category    Category @relation(fields: [categoryId], references: [id])
-  
+
   // Índices para optimizar consultas frecuentes
   @@index([categoryId])           // Para filtrar por categoría
   @@index([status])               // Para filtrar por estado
@@ -489,6 +505,7 @@ model Product {
 ### Técnicas de Optimización
 
 #### **1. Select Específico**
+
 ```javascript
 // ❌ Malo - Carga todos los campos
 const products = await prisma.product.findMany();
@@ -500,29 +517,31 @@ const products = await prisma.product.findMany({
     name: true,
     price: true,
     category: {
-      select: { name: true }
-    }
-  }
+      select: { name: true },
+    },
+  },
 });
 ```
 
 #### **2. Paginación Eficiente**
+
 ```javascript
 // ❌ Malo - OFFSET alto es lento
 const products = await prisma.product.findMany({
   skip: 10000,
-  take: 20
+  take: 20,
 });
 
 // ✅ Bueno - Cursor-based pagination
 const products = await prisma.product.findMany({
   cursor: { id: lastProductId },
   take: 20,
-  orderBy: { id: 'asc' }
+  orderBy: { id: 'asc' },
 });
 ```
 
 #### **3. Batch Operations**
+
 ```javascript
 // ❌ Malo - Múltiples queries
 for (const item of items) {
@@ -531,7 +550,7 @@ for (const item of items) {
 
 // ✅ Bueno - Una sola query
 await prisma.orderItem.createMany({
-  data: items
+  data: items,
 });
 ```
 
@@ -547,17 +566,17 @@ const transferProductStock = async (fromProductId, toProductId, quantity) => {
     // Restar del producto origen
     const fromProduct = await tx.product.update({
       where: { id: fromProductId },
-      data: { stock: { decrement: quantity } }
+      data: { stock: { decrement: quantity } },
     });
-    
+
     if (fromProduct.stock < 0) {
       throw new Error('Stock insuficiente');
     }
-    
+
     // Sumar al producto destino
     await tx.product.update({
       where: { id: toProductId },
-      data: { stock: { increment: quantity } }
+      data: { stock: { increment: quantity } },
     });
   });
 };
@@ -573,48 +592,48 @@ const processOrder = async (orderData) => {
       data: {
         userId: orderData.userId,
         status: 'pending',
-        total: 0
-      }
+        total: 0,
+      },
     });
-    
+
     let orderTotal = 0;
-    
+
     // 2. Procesar cada item
     for (const item of orderData.items) {
       // Verificar stock
       const product = await tx.product.findUnique({
-        where: { id: item.productId }
+        where: { id: item.productId },
       });
-      
+
       if (product.stock < item.quantity) {
         throw new Error(`Stock insuficiente para ${product.name}`);
       }
-      
+
       // Crear item de orden
       await tx.orderItem.create({
         data: {
           orderId: order.id,
           productId: item.productId,
           quantity: item.quantity,
-          price: product.price
-        }
+          price: product.price,
+        },
       });
-      
+
       // Reducir stock
       await tx.product.update({
         where: { id: item.productId },
-        data: { stock: { decrement: item.quantity } }
+        data: { stock: { decrement: item.quantity } },
       });
-      
+
       orderTotal += product.price * item.quantity;
     }
-    
+
     // 3. Actualizar total de la orden
     const finalOrder = await tx.order.update({
       where: { id: order.id },
-      data: { total: orderTotal }
+      data: { total: orderTotal },
     });
-    
+
     return finalOrder;
   });
 };
@@ -625,21 +644,25 @@ const processOrder = async (orderData) => {
 ## 📝 Resumen de Conceptos Clave
 
 ### **Arquitectura CRUD Avanzada**
+
 1. **Repository Pattern** - Separación de acceso a datos
 2. **Service Layer** - Lógica de negocio encapsulada
 3. **DTO Pattern** - Validación de entrada estructurada
 
 ### **Relaciones Complejas**
+
 1. **Auto-referencia** - Jerarquías (categorías padre/hijo)
 2. **Tablas intermedias** - Metadatos en relaciones N:M
 3. **Consultas optimizadas** - Includes, selects específicos
 
 ### **Validaciones Multi-Nivel**
+
 1. **Esquema BD** - Constraints y checks
 2. **DTO Validation** - Joi/Zod para entrada
 3. **Business Logic** - Reglas de negocio complejas
 
 ### **Performance y Optimización**
+
 1. **Índices estratégicos** - Para consultas frecuentes
 2. **Paginación eficiente** - Cursor-based vs offset
 3. **Transacciones** - Consistencia de datos
