@@ -78,7 +78,6 @@ The main README.md now correctly references:
 ### Additional Assets
 
 - [ ] Week-specific icons (semana-01 through semana-11)
-- [ ] Gamification badges and achievements
 - [ ] Architecture diagrams
 - [ ] Technology stack infographics
 - [ ] Social media variants (LinkedIn, Twitter sizes)

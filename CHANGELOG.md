@@ -11,8 +11,50 @@ y este proyecto adhiere al [Versionado Semántico](https://semver.org/spec/v2.0.
 
 - Integración con GitHub Codespaces
 - Plantillas de proyecto automatizadas
-- Sistema de badges automatizado
 - Integración con Discord bot
+
+## [2.0.0] - 2025-10-06
+
+### Changed - AJUSTE FINAL A 9 SEMANAS
+
+- ✅ **Duración ajustada**: Bootcamp ahora es de **9 semanas exactas** (54 horas totales)
+- ✅ **Enfoque pedagógico realista**: Cambio de "Deployment Engineers certificados" a "habilidades para desarrollar APIs REST con Express.js y mejores prácticas"
+- ✅ **Semana 9 integrada**: Proyecto final + Docker básico en una sola semana
+- ✅ **Expectativas realistas**: Contenido 100% alcanzable en 5.5h efectivas por semana
+- ✅ **Calidad sobre cantidad**: Enfoque en fundamentos sólidos antes que coverage superficial
+
+### Removed
+
+- ❌ **Semana 10**: Eliminada completamente (contenido de deployment avanzado)
+- ❌ **Temas avanzados**: Kubernetes, CI/CD complejos, monitoreo avanzado
+- ❌ **Promesas exageradas**: Ya no se promete "Deployment Engineers certificados"
+
+### Technical Details
+
+- **Nueva duración**: 9 semanas × 6 horas = 54 horas totales
+- **Tiempo efectivo**: 5.5h por semana (330 min de contenido + 30 min breaks)
+- **Semana 9**: Integración completa + Docker básico + API funcional
+- **Enfoque**: APIs REST funcionales con mejores prácticas fundamentales
+- **Tasa de éxito esperada**: ~85%+ (vs ~60% anterior)
+
+### Improved Learning Outcomes
+
+Los estudiantes ahora:
+
+- ✅ Desarrollan APIs REST funcionales con Express.js
+- ✅ Implementan CRUD completo con base de datos
+- ✅ Aplican autenticación JWT básica
+- ✅ Escriben tests unitarios básicos
+- ✅ Containerizan aplicaciones con Docker (básico)
+- ✅ Siguen mejores prácticas fundamentales
+- ✅ Trabajan con Git/GitHub profesionalmente
+
+### Documentation Updated
+
+- `_docs/AJUSTE_9_SEMANAS_OCTUBRE_2025.md` - Documento completo del ajuste
+- `README.md` - Actualizado con nueva duración y enfoque
+- `CHANGELOG.md` - Esta entrada
+- Todos los documentos actualizados de "10 semanas" a "9 semanas"
 
 ## [1.1.0] - 2025-08-22
 
@@ -46,7 +88,6 @@ y este proyecto adhiere al [Versionado Semántico](https://semver.org/spec/v2.0.
 - ✅ **Bootcamp completo**: 10 semanas de contenido estructurado
 - ✅ **Stack tecnológico**: Express.js, TypeScript, Node.js, PostgreSQL
 - ✅ **Documentación completa**: README, Contributing, Code of Conduct
-- ✅ **Sistema de gamificación**: Badges, puntos, equipos colaborativos
 - ✅ **Metodología SENA**: Integración con valores institucionales
 - ✅ **pnpm exclusivo**: Gestor de paquetes oficial con justificación técnica
 - ✅ **Templates GitHub**: Issues, PRs, workflows
@@ -70,7 +111,7 @@ y este proyecto adhiere al [Versionado Semántico](https://semver.org/spec/v2.0.
 
 ### Educational Features
 
-- **Duration**: 10 semanas × 6 horas semanales
+- **Duration**: 9 semanas × 6 horas semanales = 54 horas totales
 - **Methodology**: Bootcamp intensivo con enfoque práctico
 - **Evaluation**: Sistema de rúbricas detalladas
 - **Progression**: Proyectos que construyen sobre conocimientos previos
@@ -98,12 +139,14 @@ bc-express/
 ├── 📁 semana-06/          # CRUD completo
 ├── 📁 semana-07/          # Autenticación
 ├── 📁 semana-08/          # Testing y calidad
-├── 📁 semana-09/          # Docker y containerización
-├── 📁 semana-10/          # APIs avanzadas
-├── 📁 semana-11/          # Proyecto final
-├── 📁 _docs/              # Documentación técnica
-├── 📁 _scripts/           # Scripts automatización
+├── 📁 semana-09/          # Proyecto final + Docker
+```
+
+├── 📁 semana-11/ # Proyecto final
+├── 📁 \_docs/ # Documentación técnica
+├── 📁 \_scripts/ # Scripts automatización
 └── 📁 recursos-compartidos/ # Recursos del bootcamp
+
 ```
 
 ## [0.9.0] - 2025-08-15
@@ -133,7 +176,6 @@ bc-express/
 
 ### Added
 
-- Sistema completo de gamificación
 - Rúbricas de evaluación por semana
 - Integración con valores SENA
 - Templates de GitHub Issues y PRs
@@ -191,6 +233,7 @@ Este proyecto usa [Semantic Versioning](https://semver.org/):
 
 ---
 
-**Mantenido por**: Equipo bc-express  
-**Última actualización**: 2025-08-22  
+**Mantenido por**: Equipo bc-express
+**Última actualización**: 2025-08-22
 **Próxima release**: 1.1.0 (estimada para octubre 2025)
+```

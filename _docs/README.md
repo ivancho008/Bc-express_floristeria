@@ -1,52 +1,123 @@
-# Documentación Técnica - Bootcamp bc-express
+# 📚 Documentación Técnica - Bootcamp bc-express
 
-Bienvenido a la documentación técnica completa del Bootcamp bc-express. Esta sección contiene guías avanzadas, mejores prácticas y recursos para instructores, contributors y estudiantes avanzados.
+**Última actualización:** 6 de octubre de 2025
+
+Bienvenido a la documentación técnica completa del Bootcamp bc-express. Esta sección contiene toda la documentación técnica, reportes, análisis y recursos internos del proyecto.
+
+---
+
+## 🎯 Principio de Organización
+
+**"La raíz es para usuarios, `_docs/` es para desarrolladores"**
+
+Todo lo que no sea estrictamente necesario para la **primera impresión** del proyecto se encuentra organizado aquí.
+
+---
+
+## � Índice de Documentación
+
+### 📅 **Planificación y Metodología**
+
+- **[Plan de Trabajo 6h](plan-trabajo-ajustado-6h.md)** - Plan detallado de 9 semanas
+- **[Ajuste 9 Semanas](AJUSTE_9_SEMANAS_OCTUBRE_2025.md)** - Ajuste final a 9 semanas (oct-06)
+- **[Reestructuración 10 Semanas](REESTRUCTURACION_10_SEMANAS.md)** - Histórico: Ajuste a 10 semanas (ago-22)
+- **[Estructura Bootcamp](ESTRUCTURA_BOOTCAMP.md)** - Estructura general del bootcamp
+- **[Estructura Proyecto](ESTRUCTURA.md)** - Estructura del proyecto técnico
+
+### 📊 **Evaluaciones y Validaciones**
+
+- **[Evaluación Cumplimiento Template](EVALUACION_CUMPLIMIENTO_TEMPLATE.md)** - Análisis del template
+- **[Evaluación Plan Detallado](EVALUACION_PLAN_DETALLADO.md)** - Evaluación del plan de trabajo
+- **[Validación Template Automática](VALIDACION_TEMPLATE_AUTOMATICA.md)** - Validaciones automáticas
+
+### ✅ **Revisiones por Semana**
+
+- **[Revisión Semana 5 Completa](REVISION_SEMANA_5_COMPLETA.md)** - Análisis completo semana 5
+
+### 🎨 **Optimizaciones y Mejoras**
+
+- **[Optimización Tema Dark](OPTIMIZACION_TEMA_DARK.md)** - Reporte optimización tema oscuro
+- **[Solución Autocommit](SOLUCION_AUTOCOMMIT.md)** - Fix sistema de autocommit
+
+### �📁 **Reorganizaciones**
+
+- **[Reorganización Documentación Minimalista](REORGANIZACION_DOCUMENTACION_MINIMALISTA.md)** - Primera fase (ago-23)
+- **[Reorganización Octubre 2025](REORGANIZACION_OCTUBRE_2025.md)** - Segunda fase (oct-06)
+- **[Eliminación Gamificación Octubre 2025](ELIMINACION_GAMIFICACION_OCTUBRE_2025.md)** - Remoción sistema gamificación
+
+### 🧪 **Testing y Validaciones**
+
+Bienvenido a la documentación técnica completa del Bootcamp bc-express. Esta sección contiene toda la documentación técnica, reportes, análisis y recursos internos del proyecto.
+
+---
+
+## 🎯 Principio de Organización
+
+**"La raíz es para usuarios, `_docs/` es para desarrolladores"**
+
+Todo lo que no sea estrictamente necesario para la **primera impresión** del proyecto se encuentra organizado aquí.
+
+---
 
 ## 📋 Índice de Documentación
 
-### 🚀 Setup y Configuración
+### � **Planificación y Metodología**
 
-- **[Environment Setup](setup/environment-setup.md)** - Configuración completa del entorno de desarrollo
-- **[Git/GitHub Strategy](setup/git-github-strategy.md)** - Estrategias y flujos de trabajo con Git/GitHub
-- **[Entrega Guidelines](setup/entrega-guidelines.md)** - Guías para entregas y evaluaciones
-- **[Automation Roadmap](setup/automation-roadmap.md)** - Roadmap de automatización y CI/CD
+- **[Plan de Trabajo 6h](plan-trabajo-ajustado-6h.md)** - Plan detallado de 10 semanas
+- **[Reestructuración 10 Semanas](REESTRUCTURACION_10_SEMANAS.md)** - Reporte de ajuste a 10 semanas
+- **[Estructura Bootcamp](ESTRUCTURA_BOOTCAMP.md)** - Estructura general del bootcamp
+- **[Estructura Proyecto](ESTRUCTURA.md)** - Estructura del proyecto técnico
 
-### 📖 Guías Técnicas Avanzadas
+### � **Evaluaciones y Validaciones**
 
-- **[Security Best Practices](guides/security-best-practices.md)** - Mejores prácticas de seguridad
-- **[Performance Optimization](guides/performance-optimization.md)** - Optimización de rendimiento
-- **[API Design Standards](guides/api-design-standards.md)** - Estándares de diseño de APIs
-- **[Deployment & DevOps](guides/deployment-devops.md)** - Deployment y prácticas DevOps
-- **[Architecture Patterns](guides/architecture-patterns.md)** - Patrones de arquitectura
-- **[Database Modeling](guides/database-modeling.md)** - Modelado de bases de datos
-- **[Gamification Strategy](guides/gamification-strategy.md)** - Sistema de gamificación
-- **[Rúbricas de Evaluación](guides/rubricas-evaluacion.md)** - Sistema de evaluación
+- **[Evaluación Cumplimiento Template](EVALUACION_CUMPLIMIENTO_TEMPLATE.md)** - Análisis del template
+- **[Evaluación Plan Detallado](EVALUACION_PLAN_DETALLADO.md)** - Evaluación del plan de trabajo
+- **[Validación Template Automática](VALIDACION_TEMPLATE_AUTOMATICA.md)** - Validaciones automáticas
 
-### 📊 Documentación de APIs
+### ✅ **Revisiones por Semana**
 
-- **[API Reference](api/)** - Documentación de APIs de ejemplo
-- **[OpenAPI Specs](api/specs/)** - Especificaciones OpenAPI/Swagger
+- **[Revisión Semana 5 Completa](REVISION_SEMANA_5_COMPLETA.md)** - Análisis completo semana 5
 
-### 🏗️ Arquitectura
+### 🎨 **Optimizaciones y Mejoras**
 
-- **[System Architecture](architecture/)** - Diagramas y documentación arquitectural
-- **[Database Schema](architecture/database/)** - Esquemas de base de datos
-- **[Infrastructure](architecture/infrastructure/)** - Diagramas de infraestructura
+- **[Optimización Tema Dark](OPTIMIZACION_TEMA_DARK.md)** - Reporte optimización tema oscuro
+- **[Solución Autocommit](SOLUCION_AUTOCOMMIT.md)** - Fix sistema de autocommit
 
-### 🔧 Troubleshooting
+### � **Reorganizaciones**
 
-- **[Common Issues](troubleshooting/)** - Problemas comunes y soluciones
-- **[Debug Guide](troubleshooting/debug-guide.md)** - Guía de debugging
-- **[FAQ](troubleshooting/faq.md)** - Preguntas frecuentes
+- **[Reorganización Documentación Minimalista](REORGANIZACION_DOCUMENTACION_MINIMALISTA.md)** - Primera fase (ago-23)
+- **[Reorganización Octubre 2025](REORGANIZACION_OCTUBRE_2025.md)** - Segunda fase (oct-06)
+
+### 🧪 **Testing y Validaciones**
+
+- **[Test Autocommit](test-autocommit.md)** - Tests del sistema de commits automáticos
+
+### 📁 **Templates y Referencias**
+
+- **[Template Bootcamp/](template-bootcamp/)** - Plantillas y candidatos para bootcamps
+  - Candidatos, estructura, recomendaciones ejecutivas
+
+---
 
 ## 🎯 Audiencias
 
-### 👨‍🎓 Estudiantes
+### �‍🎓 **Estudiantes**
 
-- Configuración del entorno de desarrollo
-- Mejores prácticas de desarrollo
-- Patrones de diseño comunes
-- Troubleshooting de problemas frecuentes
+- Consultar planes de trabajo y cronogramas
+- Revisar revisiones y evaluaciones de semanas
+- Entender la estructura del bootcamp
+
+### 👨‍🏫 **Instructores**
+
+- Acceder a planes detallados y rúbricas
+- Revisar evaluaciones y validaciones
+- Consultar optimizaciones y mejoras
+
+### 💻 **Contributors**
+
+- Entender la estructura del proyecto
+- Consultar reportes de reorganizaciones
+- Revisar validaciones y testing
 
 ### 👨‍🏫 Instructores
 

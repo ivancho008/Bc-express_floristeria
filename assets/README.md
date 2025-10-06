@@ -77,7 +77,6 @@ magick archivo.svg archivo.png
 - [ ] Iconos para cada semana (01-11)
 - [ ] Diagramas de arquitectura
 - [ ] Infografías de conceptos
-- [ ] Assets para gamificación
 
 ### Formatos adicionales:
 

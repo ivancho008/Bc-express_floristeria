@@ -14,7 +14,7 @@ assignees: ''
 
 **Relacionado con**:
 
-- [ ] Semana específica (¿cuál?): ****\_\_\_****
+- [ ] Semana específica (¿cuál?): \***\*\_\_\_\*\***
 - [ ] Concepto técnico general
 - [ ] Configuración del entorno
 - [ ] Uso de herramientas
@@ -67,7 +67,6 @@ assignees: ''
 - [ ] 🎓 **Pedagógica** - "¿Cómo debería estudiar/practicar?"
 - [ ] 📚 **Recursos** - "¿Dónde encuentro más información?"
 - [ ] 🏗️ **Arquitectura** - "¿Cómo se estructura el proyecto?"
-- [ ] 🎮 **Gamificación** - "¿Cómo funcionan los badges/puntos?"
 
 ## 🎓 Objetivo de Aprendizaje
 
@@ -77,7 +76,7 @@ assignees: ''
 
 **¿Es para un ejercicio específico?**
 
-- [ ] Sí, ejercicio: ****\_\_\_****
+- [ ] Sí, ejercicio: \***\*\_\_\_\*\***
 - [ ] Sí, proyecto de semana
 - [ ] No, curiosidad general
 - [ ] Para aplicar en proyecto personal

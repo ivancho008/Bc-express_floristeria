@@ -23,7 +23,7 @@
 
 ## 📋 Descripción del Proyecto
 
-Bootcamp intensivo de desarrollo de **APIs REST con Express.js** dirigido a aprendices de Tecnólogo en Desarrollo de Software (III trimestre). El programa tiene una duración de **10 semanas** con sesiones semanales de **6 horas exactas** (incluyendo break de 30 min), enfocado en la aplicación de mejores prácticas y desarrollo de software de **calidad total** con enfoque en conceptos fundamentales.
+Bootcamp intensivo de desarrollo de **APIs REST con Express.js** dirigido a aprendices de Tecnólogo en Desarrollo de Software (III trimestre). El programa tiene una duración de **9 semanas** (54 horas totales) con sesiones semanales de **6 horas exactas** (incluyendo break de 30 min), enfocado en desarrollar **habilidades para crear APIs REST con Express.js aplicando mejores prácticas**.
 
 ## 🚨 **ESTADO ACTUAL DEL BOOTCAMP**
 
@@ -37,18 +37,18 @@ Bootcamp intensivo de desarrollo de **APIs REST con Express.js** dirigido a apre
 - **✅ Semana 6**: CRUD Completo
 - **✅ Semana 7**: Autenticación Básica
 - **✅ Semana 8**: Testing y Calidad
-- **✅ Semana 9**: Containerización con Docker
-- **✅ Semana 10**: Proyecto Final Integrador (Portfolio, Testing Avanzado, Deployment)
-- **✅ Gamificación**: [Sistema completo de incentivos y logros](./_docs/guides/gamification-strategy.md)
+- **✅ Semana 9**: Proyecto Final + Docker Básico
 
 ### 🔄 **En Proceso de Depuración**
 
-- **📅 Próximas actualizaciones**: Bootcamp completado en 10 semanas
+- **📅 Próximas actualizaciones**: Bootcamp completado en 9 semanas
 - **📅 Próximas actualizaciones**: Las semanas se irán publicando conforme se complete su depuración
 
 ### 📢 **Importante**
 
 > Todas las semanas completadas incluyen: teoría, prácticas (90 min c/u), ejercicios, proyecto y recursos.
+>
+> **Enfoque realista**: No se pretende formar "Deployment Engineers" certificados, sino desarrollar habilidades fundamentales para crear APIs REST profesionales con Express.js y aplicar mejores prácticas.
 > Contenido ajustado a **6 horas semanales exactas** con protección de solo lectura.
 
 ## 🚨 **IMPORTANTE: Restricciones y Expectativas**
@@ -153,7 +153,6 @@ bc-express/
 │   │   ├── 📄 deployment-devops.md       # Deployment y DevOps
 │   │   ├── 📄 architecture-patterns.md   # Patrones arquitectura
 │   │   ├── 📄 database-modeling.md       # Modelado de BD
-│   │   ├── 📄 gamification-strategy.md   # Estrategia de gamificación
 │   │   └── 📄 rubricas-evaluacion.md     # Rúbricas evaluación
 │   ├── 📁 api/                           # Documentación API
 │   ├── 📁 architecture/                  # Diagramas arquitectura
@@ -238,27 +237,6 @@ semana-XX/
 - **Técnica (70%)**: Funcionamiento, calidad, best practices
 - **Profesional (20%)**: Nomenclatura, documentación, Git workflow
 - **Actitudinal (10%)**: Participación, growth mindset, colaboración
-
-## 🎮 Sistema de Gamificación
-
-El bootcamp incluye un **sistema completo de gamificación** diseñado para mantener la motivación y fomentar el aprendizaje colaborativo:
-
-### 🏅 Elementos Clave
-
-- **🌟 Badges por Habilidades**: 15+ logros técnicos específicos (Express Novice, Type Master, Security Specialist, etc.)
-- **🏆 Sistema de Puntos**: Recompensas por calidad de código, participación y colaboración
-- **👥 Equipos Colaborativos**: Trabajo en equipos de 3-4 personas con rotación semanal
-- **📈 Leaderboard Constructivo**: Enfoque en progreso personal y colaboración
-- **🎁 Recompensas Tangibles**: Acceso a recursos premium, certificaciones y herramientas
-
-### 🎯 Filosofía
-
-- **Colaboración sobre competencia**: Fomentar ayuda mutua
-- **Calidad sobre cantidad**: Premiar excelencia, no velocidad
-- **Crecimiento personal**: Enfoque en mejora individual
-- **Valores SENA integrados**: Respeto, responsabilidad, calidad y trabajo en equipo
-
-**📋 Documentación completa**: [Estrategia de Gamificación](./_docs/guides/gamification-strategy.md)
 
 ## 🚀 Inicio Rápido
 
@@ -351,20 +329,19 @@ pnpm run dev
 
 ## 📋 Cronograma del Bootcamp
 
-| Semana | Estado       | Tema Principal               | Tecnologías                             |
-| ------ | ------------ | ---------------------------- | --------------------------------------- |
-| 1      | ✅ Publicada | Fundamentos y Configuración  | Node.js, Express.js, Git, Docker        |
-| 2      | ✅ Publicada | Express.js Fundamentals      | TypeScript, Swagger, Validation         |
-| 3      | ✅ Publicada | Validación y Estructura REST | Joi/Zod, HTTP Errors                    |
-| 4      | ✅ Publicada | Bases de Datos con Express   | Prisma, TypeORM, PostgreSQL             |
-| 5      | ✅ Publicada | Autenticación y Autorización | JWT, OAuth2, Security, Roles            |
-| 6      | ✅ Publicada | CRUD Completo                | Advanced ORM, Relations                 |
-| 7      | ✅ Publicada | Autenticación Básica         | JWT, Security, Authentication           |
-| 8      | ✅ Publicada | Testing y Calidad            | Jest, Supertest, Coverage               |
-| 9      | ✅ Publicada | Containerización con Docker  | Docker, Compose, CI/CD, Monitoring      |
-| 10     | ✅ Publicada | Proyecto Final Integrador    | Portfolio, Testing Avanzado, Deployment |
+| Semana | Estado       | Tema Principal               | Tecnologías                            |
+| ------ | ------------ | ---------------------------- | -------------------------------------- |
+| 1      | ✅ Publicada | Fundamentos y Configuración  | Node.js, Express.js, Git, Docker       |
+| 2      | ✅ Publicada | Express.js Fundamentals      | TypeScript, Swagger, Validation        |
+| 3      | ✅ Publicada | Validación y Estructura REST | Joi/Zod, HTTP Errors                   |
+| 4      | ✅ Publicada | Bases de Datos con Express   | Prisma, TypeORM, PostgreSQL            |
+| 5      | ✅ Publicada | Autenticación y Autorización | JWT, OAuth2, Security, Roles           |
+| 6      | ✅ Publicada | CRUD Completo                | Advanced ORM, Relations                |
+| 7      | ✅ Publicada | Autenticación Básica         | JWT, Security, Authentication          |
+| 8      | ✅ Publicada | Testing y Calidad            | Jest, Supertest, Coverage              |
+| 9      | ✅ Publicada | Proyecto Final + Docker      | Docker, Portfolio, Testing, Deployment |
 
-> **Nota**: Las semanas 1-10 están completamente depuradas y protegidas. El bootcamp está completo con 10 semanas de contenido de alta calidad.
+> **Nota**: Las semanas 1-9 están completamente depuradas y protegidas. El bootcamp está completo con **9 semanas** de contenido enfocado en fundamentos y mejores prácticas.
 
 ## 📚 Documentación Adicional
 
@@ -416,9 +393,9 @@ La documentación completa está organizada en `_docs/` con las siguientes secci
 - **`_scripts/testing/`** - Scripts para testing automatizado
 - **`_scripts/deployment/`** - Scripts de deployment
 
-### 🎯 Estado Actual: Semanas 1-10 Completadas
+### 🎯 Estado Actual: Semanas 1-9 Completadas
 
-Las **Semanas 1-10** están completamente implementadas y publicadas con:
+Las **Semanas 1-9** están completamente implementadas y publicadas con:
 
 - ✅ **Objetivos y rúbricas definidos** (`README.md`, rúbricas de evaluación)
 - ✅ **Tutoriales prácticos completos** (paso a paso estructurados)
@@ -430,9 +407,8 @@ Las **Semanas 1-10** están completamente implementadas y publicadas con:
 - ✅ **Contenido estructurado** (6 horas exactas incluye break 30 min)
 - ✅ **Protección como solo lectura** (chmod -R 555)
 - 🔄 **Diagramas visuales** (SVG preparados, pendientes de integración)
-- ✅ **Sistema de gamificación** ([Estrategia completa de incentivos](./_docs/guides/gamification-strategy.md))
 
-**Todas las 11 semanas**: Completamente depuradas, validadas y protegidas siguiendo los criterios establecidos.
+**Todas las 9 semanas**: Completamente depuradas, validadas y protegidas siguiendo los criterios establecidos.
 
 ## 🤝 Contribución
 

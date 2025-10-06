@@ -60,29 +60,31 @@ Estos archivos son los **únicos que un usuario necesita ver inmediatamente** al
 
 ```
 _docs/
-├── README.md                              # Índice de documentación
-├── plan-trabajo-ajustado-6h.md           # Plan detallado 10 semanas
-├── REESTRUCTURACION_10_SEMANAS.md        # Reporte de cambios
-├── EVALUACION_CUMPLIMIENTO_TEMPLATE.md   # Análisis template
-├── EVALUACION_PLAN_DETALLADO.md          # Evaluación de plan
-├── VALIDACION_TEMPLATE_AUTOMATICA.md     # Validación automática
-├── OPTIMIZACION_TEMA_DARK.md             # Reporte tema dark
-├── SOLUCION_AUTOCOMMIT.md                # Fix automatización
-├── test-autocommit.md                    # Test de commits
-├── automation/
-│   └── auto-commit.md                    # Documentación scripts
+├── README.md                                   # Índice de documentación
+├── plan-trabajo-ajustado-6h.md                # Plan detallado 10 semanas
+├── REESTRUCTURACION_10_SEMANAS.md             # Reporte de cambios
+├── REORGANIZACION_DOCUMENTACION_MINIMALISTA.md # Este documento
+├── REVISION_SEMANA_5_COMPLETA.md              # Revisión semana 5
+├── EVALUACION_CUMPLIMIENTO_TEMPLATE.md        # Análisis template (movido oct-06)
+├── EVALUACION_PLAN_DETALLADO.md               # Evaluación de plan (movido oct-06)
+├── VALIDACION_TEMPLATE_AUTOMATICA.md          # Validación automática
+├── OPTIMIZACION_TEMA_DARK.md                  # Reporte tema dark (movido oct-06)
+├── SOLUCION_AUTOCOMMIT.md                     # Fix automatización (movido oct-06)
+├── ESTRUCTURA.md                              # Estructura proyecto (movido oct-06)
+├── ESTRUCTURA_BOOTCAMP.md                     # Estructura bootcamp (movido oct-06)
+├── test-autocommit.md                         # Test de commits (movido oct-06)
 └── template-bootcamp/
-    ├── CANDIDATES.md                     # Candidatos bootcamp
-    ├── PLANTILLA_ESTRUCTURA_BOOTCAMP.md  # Plantilla oficial
-    ├── RECOMENDACION_EJECUTIVA_BOOTCAMP.md # Análisis ejecutivo
-    └── RECOMENDACION_FINAL_BOOTCAMPS.md   # Recomendaciones finales
+    ├── CANDIDATES.md                          # Candidatos bootcamp
+    ├── PLANTILLA_ESTRUCTURA_BOOTCAMP.md       # Plantilla oficial
+    ├── RECOMENDACION_EJECUTIVA_BOOTCAMP.md    # Análisis ejecutivo
+    └── RECOMENDACION_FINAL_BOOTCAMPS.md       # Recomendaciones finales
 ```
 
 ### 🎯 **CATEGORIZACIÓN:**
 
 - **📋 Planificación**: Plan de trabajo, evaluaciones, template
-- **🔧 Técnico**: Validaciones, optimizaciones, soluciones
-- **📊 Reportes**: Análisis, cumplimiento, reorganización
+- **🔧 Técnico**: Validaciones, optimizaciones, soluciones, estructura
+- **📊 Reportes**: Análisis, cumplimiento, reorganización, revisiones
 - **🤖 Automatización**: Scripts, testing, commits
 
 ---
@@ -93,7 +95,7 @@ _docs/
 
 ```
 Antes: 15+ archivos MD en raíz (abrumador)
-Ahora: 5 archivos esenciales (claro y profesional)
+Ahora: 4 archivos MD esenciales (claro y profesional)
 ```
 
 ### 2. **🎯 NAVEGACIÓN INTUITIVA**
