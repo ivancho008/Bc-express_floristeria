@@ -1,4 +1,14 @@
-# 📚 Documentación Técnica - Bootcamp bc-express
+# 📚 Documentación Técnica - Bootcamp bc-### 📁 **Reorganizaciones**
+
+- **[Reorganización Documentación Minimalista](REORGANIZACION_DOCUMENTACION_MINIMALISTA.md)** - Primera fase (ago-23)
+- **[Reorganización Octubre 2025](REORGANIZACION_OCTUBRE_2025.md)** - Segunda fase (oct-06)
+- **[Eliminación Gamificación Octubre 2025](ELIMINACION_GAMIFICACION_OCTUBRE_2025.md)** - Remoción sistema gamificación
+
+### 🔒 **Políticas y Estrategias Pedagógicas**
+
+- **[Política Anticopia y Asignación de Dominios](POLITICA_ANTICOPIA_DOMINIOS.md)** - Sistema de dominios únicos por aprendiz
+
+### 🧪 **Testing y Validaciones**
 
 **Última actualización:** 6 de octubre de 2025
 

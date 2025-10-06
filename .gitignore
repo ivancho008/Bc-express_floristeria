@@ -429,6 +429,21 @@ storybook-static/
 # *.specific-extension
 
 # ===================================
+# Asignaciones Privadas de Dominios
+# ===================================
+
+# CRÍTICO: Nunca subir asignaciones personalizadas a GitHub
+# Estas carpetas contienen información privada de cada aprendiz
+**/4-asignacion-dominios/*.md
+!**/4-asignacion-dominios/.gitkeep
+!**/4-asignacion-dominios/README.md
+!**/4-asignacion-dominios/TEMPLATE.md
+
+# Archivos de asignación temporal
+**/4-asignacion-dominios/aprendiz-*.md
+**/4-asignacion-dominios/listado-asignaciones.*
+
+# ===================================
 # Keep important files
 # ===================================
 
