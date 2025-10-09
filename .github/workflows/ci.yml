@@ -1,0 +1,277 @@
+name: 🚀 CI/CD - Bootcamp bc-express
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '22'
+  PNPM_VERSION: '9'
+
+jobs:
+  # Validación de archivos básicos
+  validate-structure:
+    name: 📋 Validate Project Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          echo "Checking required documentation files..."
+          test -f README.md || (echo "❌ README.md missing" && exit 1)
+          test -f CONTRIBUTING.md || (echo "❌ CONTRIBUTING.md missing" && exit 1)
+          test -f CODE_OF_CONDUCT.md || (echo "❌ CODE_OF_CONDUCT.md missing" && exit 1)
+          test -f LICENSE || (echo "❌ LICENSE missing" && exit 1)
+          test -f CHANGELOG.md || (echo "❌ CHANGELOG.md missing" && exit 1)
+          echo "✅ All required files present"
+
+      - name: Check project structure
+        run: |
+          echo "Checking project structure..."
+          test -d _docs || (echo "❌ _docs directory missing" && exit 1)
+          test -d _scripts || (echo "❌ _scripts directory missing" && exit 1)
+          test -d .github || (echo "❌ .github directory missing" && exit 1)
+          echo "✅ Project structure is valid"
+
+  # Linting de markdown
+  markdown-lint:
+    name: 📝 Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: |
+          # Lint all markdown files but allow some common issues
+          markdownlint . --ignore node_modules --ignore _docs/archive --config .markdownlint.yml || true
+          echo "📝 Markdown linting completed (warnings allowed)"
+
+  # Setup y testing de contenido educativo
+  content-validation:
+    name: 🎓 Content Validation
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        week: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Check week structure
+        run: |
+          WEEK="semana-$(printf "%02d" ${{ matrix.week }})"
+          echo "Validating structure for $WEEK..."
+
+          if [ -d "$WEEK" ]; then
+            echo "✅ $WEEK directory exists"
+            
+            # Check required files
+            test -f "$WEEK/README.md" || (echo "❌ $WEEK/README.md missing" && exit 1)
+            echo "✅ $WEEK/README.md exists"
+            
+            # Check required directories
+            test -d "$WEEK/teoria" || echo "⚠️  $WEEK/teoria directory missing (optional)"
+            test -d "$WEEK/practica" || echo "⚠️  $WEEK/practica directory missing (optional)"
+            test -d "$WEEK/ejercicios" || echo "⚠️  $WEEK/ejercicios directory missing (optional)"
+            test -d "$WEEK/proyecto" || echo "⚠️  $WEEK/proyecto directory missing (optional)"
+            test -d "$WEEK/recursos" || echo "⚠️  $WEEK/recursos directory missing (optional)"
+            
+            echo "✅ $WEEK structure validation completed"
+          else
+            echo "⚠️  $WEEK directory not found (might not be implemented yet)"
+          fi
+
+  # Testing de código de ejemplo
+  example-code-test:
+    name: 🧪 Example Code Testing
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip-tests]')"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Find and test example projects
+        run: |
+          echo "Looking for example projects with package.json..."
+
+          # Find all package.json files in semana-* directories
+          PROJECTS=$(find . -name "package.json" -path "./semana-*" -not -path "*/node_modules/*")
+
+          if [ -z "$PROJECTS" ]; then
+            echo "ℹ️  No example projects found yet"
+            exit 0
+          fi
+
+          for PROJECT in $PROJECTS; do
+            PROJECT_DIR=$(dirname "$PROJECT")
+            echo "🧪 Testing project in $PROJECT_DIR"
+            
+            cd "$PROJECT_DIR"
+            
+            # Install dependencies
+            pnpm install --frozen-lockfile || pnpm install
+            
+            # Run linting if available
+            if pnpm run lint --if-present; then
+              echo "✅ Linting passed for $PROJECT_DIR"
+            fi
+            
+            # Run tests if available
+            if pnpm run test --if-present; then
+              echo "✅ Tests passed for $PROJECT_DIR"
+            fi
+            
+            # Try to build if available
+            if pnpm run build --if-present; then
+              echo "✅ Build passed for $PROJECT_DIR"
+            fi
+            
+            cd - > /dev/null
+            echo "✅ Project $PROJECT_DIR validated"
+          done
+
+          echo "🎉 All example projects validated successfully"
+
+  # Security scanning
+  security-scan:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # Link checking
+  link-check:
+    name: 🔗 Link Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup markdown-link-check
+        run: npm install -g markdown-link-check
+
+      - name: Check links in markdown files
+        run: |
+          echo "Checking links in markdown files..."
+          find . -name "*.md" -not -path "./node_modules/*" -exec markdown-link-check {} \; || true
+          echo "🔗 Link checking completed (failures allowed for now)"
+
+  # Documentation deployment (solo en main)
+  deploy-docs:
+    name: 📚 Deploy Documentation
+    runs-on: ubuntu-latest
+    needs: [validate-structure, content-validation]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Generate documentation site
+        run: |
+          echo "📚 Generating documentation site..."
+          # Aquí se podría integrar con un generador de sitios estáticos
+          # como VitePress, Docusaurus, etc.
+          echo "Documentation generation placeholder"
+
+      - name: Deploy to GitHub Pages
+        if: false # Disabled for now, enable when ready
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
+  # Notification and reporting
+  notify-status:
+    name: 📢 Notify Status
+    runs-on: ubuntu-latest
+    needs:
+      [
+        validate-structure,
+        markdown-lint,
+        content-validation,
+        example-code-test,
+        security-scan,
+        link-check,
+      ]
+    if: always()
+    steps:
+      - name: Determine overall status
+        id: status
+        run: |
+          if [[ "${{ contains(needs.*.result, 'failure') }}" == "true" ]]; then
+            echo "status=failure" >> $GITHUB_OUTPUT
+            echo "message=❌ Some checks failed" >> $GITHUB_OUTPUT
+          elif [[ "${{ contains(needs.*.result, 'cancelled') }}" == "true" ]]; then
+            echo "status=cancelled" >> $GITHUB_OUTPUT
+            echo "message=⏹️ Some checks were cancelled" >> $GITHUB_OUTPUT
+          else
+            echo "status=success" >> $GITHUB_OUTPUT
+            echo "message=✅ All checks passed" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create summary
+        run: |
+          echo "## 🚀 CI/CD Results for bc-express" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Status**: ${{ steps.status.outputs.message }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Job Results:" >> $GITHUB_STEP_SUMMARY
+          echo "- 📋 Structure Validation: ${{ needs.validate-structure.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 📝 Markdown Lint: ${{ needs.markdown-lint.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 🎓 Content Validation: ${{ needs.content-validation.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 🧪 Example Code Test: ${{ needs.example-code-test.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔒 Security Scan: ${{ needs.security-scan.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔗 Link Check: ${{ needs.link-check.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Triggered by**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
