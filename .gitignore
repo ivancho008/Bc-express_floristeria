@@ -464,6 +464,9 @@ _scripts/
 **/4-asignacion-dominios/aprendiz-*.md
 **/4-asignacion-dominios/listado-asignaciones.*
 
+# Carpetas de fichas con asignaciones personalizadas (NUNCA SUBIR)
+**/4-asignacion-dominios/[0-9]*/**
+
 # ===================================
 # Keep important files
 # ===================================
