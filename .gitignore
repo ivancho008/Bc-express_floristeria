@@ -436,6 +436,13 @@ storybook-static/
 _docs/
 
 # ===================================
+# Scripts de Automatización Internos
+# ===================================
+
+# Ignorar toda la carpeta _scripts (scripts internos del instructor)
+_scripts/
+
+# ===================================
 # Asignaciones Privadas de Dominios
 # ===================================
 
