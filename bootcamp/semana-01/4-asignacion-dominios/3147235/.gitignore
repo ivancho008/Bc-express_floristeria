@@ -6,3 +6,4 @@
 
 # Excepto este archivo
 !.gitignore
+!README.md

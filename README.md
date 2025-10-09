@@ -410,6 +410,25 @@ Las **Semanas 1-9** están completamente implementadas y publicadas con:
 
 **Todas las 9 semanas**: Completamente depuradas, validadas y protegidas siguiendo los criterios establecidos.
 
+#### 📋 Asignaciones Individuales de Dominio
+
+Este bootcamp implementa un sistema de **asignaciones de dominio individuales** para prevenir copia entre aprendices:
+
+- **Filosofía**: Cada práctica/ejercicio tiene su **propia asignación de dominio**
+- **Alcance**: Las asignaciones son específicas por ejercicio, **no** para todo el bootcamp
+- **Flexibilidad**: Diferentes prácticas pueden tener diferentes dominios asignados
+- **Objetivo**: Detectar copias y garantizar trabajo individual en ejercicios críticos
+
+**Ejemplo - Semana 1, Práctica 4 (Routing Avanzado)**:
+
+- 📂 Ubicación: `bootcamp/semana-01/4-asignacion-dominios/3147235/`
+- 🎯 Cada aprendiz recibe un dominio de negocio único (ej: Gimnasio, Biblioteca, Rent-a-Car)
+- 📝 Incluye 3 entidades específicas con atributos y 15 endpoints CRUD
+- 🔒 Archivos protegidos con `.gitignore` y PDFs encriptados (256-bit AES)
+- 📊 Total: 26 dominios únicos para 26 aprendices
+
+> **Nota importante**: Las asignaciones de dominio son **por ejercicio específico**, permitiendo flexibilidad didáctica y enfoque preciso en cada práctica. Ver `bootcamp/semana-01/4-asignacion-dominios/3147235/CAMBIOS_REALIZADOS.md` para detalles sobre la implementación correcta.
+
 ## 🤝 Contribución
 
 ### Filosofía: "Manual Primero, Luego Altamente Productivo"
