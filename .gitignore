@@ -429,6 +429,13 @@ storybook-static/
 # *.specific-extension
 
 # ===================================
+# Documentación Técnica Interna
+# ===================================
+
+# Ignorar toda la carpeta _docs (documentación interna del proyecto)
+_docs/
+
+# ===================================
 # Asignaciones Privadas de Dominios
 # ===================================
 
