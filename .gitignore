@@ -429,6 +429,13 @@ storybook-static/
 # *.specific-extension
 
 # ===================================
+# Configuración GitHub Interna
+# ===================================
+
+# Ignorar toda la carpeta .github (workflows, templates, copilot instructions)
+.github/
+
+# ===================================
 # Documentación Técnica Interna
 # ===================================
 
