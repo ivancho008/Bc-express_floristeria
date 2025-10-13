@@ -1,11 +1,11 @@
 // src/data/flowersData.js
 
-// Contadores para simular la asignación de IDs
-let nextFlowerId = 4;
-let nextBouquetId = 4;
-let nextOrderId = 4;
+// Counters to simulate ID assignment
+let nextFlowerId = 11;
+let nextBouquetId = 9;
+let nextOrderId = 9;
 
-// Entidad 1: Flower (Atributos: name, color, price, seasonality, stock)
+// Entity 1: Flower (Attributes: name, color, price, seasonality, stock, origin, fragrance, supplier)
 const flowers = [
     { id: 1, name: 'Orchid', color: 'Purple', price: 8.00, seasonality: 'All year', stock: 50, origin: 'Antioquia', fragrance: 'Soft', supplier: 'Flores Medellín' },
     { id: 2, name: 'Carnation', color: 'Red', price: 3.00, seasonality: 'Spring', stock: 120, origin: 'Cundinamarca', fragrance: 'Intense', supplier: 'Floricultores Bogotá' },
@@ -19,7 +19,7 @@ const flowers = [
     { id: 10, name: 'Tulip', color: 'Pink', price: 7.00, seasonality: 'Winter', stock: 40, origin: 'Cundinamarca', fragrance: 'Soft', supplier: 'Tulipanes Chía' }
 ];
 
-// Entidad 2: Bouquet (Atributos: name, description, price, flowerIds)
+// Entity 2: Bouquet (Attributes: name, description, price, flowerIds, occasion, wrapping, designer)
 const bouquets = [
     { id: 1, name: 'Colombian Love', description: 'Twelve pink roses and red carnations.', price: 65.00, flowerIds: [2,5], occasion: 'Anniversary', wrapping: 'Red paper', designer: 'Maria Fernanda' },
     { id: 2, name: 'Tropical Party', description: 'Heliconias and orchids with foliage.', price: 55.00, flowerIds: [1,3], occasion: 'Birthday', wrapping: 'Green mesh', designer: 'Juan Camilo' },
@@ -31,7 +31,7 @@ const bouquets = [
     { id: 8, name: 'Cundinamarca Tulip', description: 'Tulips and roses.', price: 60.00, flowerIds: [5,10], occasion: 'Valentine', wrapping: 'Red silk', designer: 'Camila Vargas' }
 ];
 
-// Entidad 3: Order (Atributos: customerName, bouquetId, deliveryDate, status)
+// Entity 3: Order (Attributes: customerName, bouquetId, deliveryDate, status, address, phone, paymentMethod, note)
 const orders = [
     { id: 1, customerName: 'Jorge Ramirez', bouquetId: 1, deliveryDate: '2025-11-01', status: 'Pending', address: 'Cra 15 #45-23, Bogotá', phone: '3104567890', paymentMethod: 'Nequi', note: 'Deliver before 10am' },
     { id: 2, customerName: 'Luisa Fernanda', bouquetId: 3, deliveryDate: '2025-10-30', status: 'Delivered', address: 'Cll 8 #12-34, Medellín', phone: '3012345678', paymentMethod: 'Cash', note: 'Call on arrival' },
@@ -43,7 +43,7 @@ const orders = [
     { id: 8, customerName: 'Camila Vargas', bouquetId: 8, deliveryDate: '2025-11-22', status: 'Pending', address: 'Cll 12 #34-56, Chía', phone: '3167890123', paymentMethod: 'Daviplata', note: 'Deliver after 5pm' }
 ];
 
-// Exportación de datos y funciones para obtener IDs
+// Export data and functions to get next IDs
 module.exports = { 
     flowers, 
     bouquets, 

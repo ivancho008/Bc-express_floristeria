@@ -3,11 +3,13 @@ const { orders, getNextOrderId } = require('../data/flowersData');
 
 const validateOrderData = (data) => {
     // customerName, bouquetId, deliveryDate, status
-    return data.customerName && data.bouquetId !== undefined && data.deliveryDate && data.status && data.address && data.phone && data.paymentMethod && data.note;
+        return data.customerName && data.bouquetId !== undefined && data.deliveryDate && data.status && data.address && data.phone && data.paymentMethod && data.note;
+        // Helper for validation (Requirement: Validate fields in POST/PUT - 400)
 };
 
 // GET /api/orders
 const getAllOrders = (req, res) => {
+    // GET /api/orders
     res.status(200).json(orders);
 };
 
@@ -17,7 +19,8 @@ const getOrderById = (req, res) => {
     const order = orders.find(o => o.id === id);
 
     if (!order) {
-        return res.status(404).json({ message: 'Order not found' });
+    // Requirement: ID validation (404 Not Found)
+    return res.status(404).json({ message: 'Order not found' });
     }
     res.status(200).json(order);
 };
@@ -27,7 +30,7 @@ const createOrder = (req, res) => {
     const newOrder = req.body;
 
     if (!validateOrderData(newOrder)) {
-        return res.status(400).json({ message: 'Missing required fields for Order: customerName, bouquetId, deliveryDate, or status.' });
+    return res.status(400).json({ message: 'Missing required fields for Order: customerName, bouquetId, deliveryDate, status, address, phone, paymentMethod, note.' });
     }
 
     newOrder.id = getNextOrderId();

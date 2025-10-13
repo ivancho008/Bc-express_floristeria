@@ -1,7 +1,7 @@
 // src/controllers/bouquets.controller.js
 const { bouquets, getNextBouquetId } = require('../data/flowersData');
 
-// ...existing code...
+// Helper for validation (Requirement: Validate fields in POST/PUT - 400)
 const validateBouquetData = (data) => {
     return data.name && data.description && data.price !== undefined && Array.isArray(data.flowerIds) && data.occasion && data.wrapping && data.designer;
 };
@@ -17,6 +17,7 @@ const getBouquetById = (req, res) => {
     const bouquet = bouquets.find(b => b.id === id);
 
     if (!bouquet) {
+        // Requirement: ID validation (404 Not Found)
         return res.status(404).json({ message: 'Bouquet not found' });
     }
     res.status(200).json(bouquet);
@@ -27,7 +28,7 @@ const createBouquet = (req, res) => {
     const newBouquet = req.body;
 
     if (!validateBouquetData(newBouquet)) {
-        return res.status(400).json({ message: 'Missing required fields for Bouquet: name, description, price, or flowerIds (must be an array).' });
+        return res.status(400).json({ message: 'Missing required fields for Bouquet: name, description, price, flowerIds (must be an array), occasion, wrapping, designer.' });
     }
 
     newBouquet.id = getNextBouquetId();
