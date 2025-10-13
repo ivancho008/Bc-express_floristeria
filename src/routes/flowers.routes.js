@@ -1,12 +1,19 @@
-// src/routes/flowers.routes.js
+
+// flowers.routes.js
+// Router for Flower entity endpoints
 const express = require('express');
-const router = express.Router(); // Requisito 1: Usar express.Router()
+const router = express.Router();
 const flowerController = require('../controllers/flowers.controller');
 
+// Get all flowers
 router.get('/', flowerController.getAllFlowers); 
-router.get('/:id', flowerController.getFlowerById); // Requisito 2: Route Parameter :id
+// Get flower by ID
+router.get('/:id', flowerController.getFlowerById);
+// Create a new flower
 router.post('/', flowerController.createFlower);
-router.put('/:id', flowerController.updateFlower);  // Requisito 2: Route Parameter :id
-router.delete('/:id', flowerController.deleteFlower); // Requisito 2: Route Parameter :id
+// Update flower by ID
+router.put('/:id', flowerController.updateFlower);
+// Delete flower by ID
+router.delete('/:id', flowerController.deleteFlower);
 
 module.exports = router;

@@ -1,16 +1,16 @@
-// Definición de ID secuencial para simular una base de datos
+// Sequential ID definition to simulate a database
 let nextFlowerId = 4;
 let nextBouquetId = 5;
 let nextOrderId = 4;
 
-// Entidad 1: Flower (Atributos: name, color, price, seasonality, stock) [5]
+// Entity 1: Flower (Attributes: name, color, price, seasonality, stock)
 const flowers = [
     { id: 1, name: 'Rose', color: 'Red', price: 5.00, seasonality: 'Year-round', stock: 150 },
     { id: 2, name: 'Lily', color: 'White', price: 4.50, seasonality: 'Spring', stock: 80 },
     { id: 3, name: 'Tulip', color: 'Yellow', price: 3.20, seasonality: 'Spring', stock: 200 },
 ];
 
-// Entidad 2: Bouquet (Atributos: name, description, price, flowerIds) [6]
+// Entity 2: Bouquet (Attributes: name, description, price, flowerIds, occasion, wrapping, designer)
 const bouquets = [
     { id: 1, name: 'Romantic Mix', description: 'A dozen red roses.', price: 60.00, flowerIds: [11] },
     { id: 2, name: 'Spring Basket', description: 'Mix of lilies and tulips.', price: 45.00, flowerIds: [12, 13] },
@@ -18,7 +18,7 @@ const bouquets = [
     { id: 4, name: 'Colombian love', description: 'twelve pink roses and red carnations.', price: 65.00, flowerIds: [2, 5], occasion: 'Anniversary', wrapping: 'Red paper', designer: 'María Fernanda' }
 ];
 
-// Entidad 3: Order (Atributos: customerName, bouquetId, deliveryDate, status) [7]
+// Entity 3: Order (Attributes: customerName, bouquetId, deliveryDate, status)
 const orders = [
     { id: 1, customerName: 'Ivan Yate', bouquetId: 1, deliveryDate: '2025-11-01', status: 'Pending' },
     { id: 2, customerName: 'Ana Smith', bouquetId: 3, deliveryDate: '2025-10-30', status: 'Delivered' },
@@ -26,7 +26,7 @@ const orders = [
     { id: 4, customerName: 'Jorge Ramírez', bouquetId: 1, deliveryDate: '2025-11-01', status: 'Pending', }
 ];
 
-// Exportación de datos y contadores
+// Export data and ID counters
 module.exports = { 
     flowers, 
     bouquets, 
