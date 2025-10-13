@@ -1,4 +1,3 @@
-// src/controllers/orders.controller.js
 const { orders, getNextOrderId } = require('../data/flowersData');
 
 const validateOrderData = (data) => {

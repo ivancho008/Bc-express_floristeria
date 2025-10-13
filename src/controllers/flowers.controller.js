@@ -1,6 +1,3 @@
-// ...existing code...
-
-// src/controllers/flowers.controller.js
 const { flowers, getNextFlowerId } = require('../data/flowersData');
 
 // Helper for validation (Requirement 4: Validate fields in POST/PUT - 400)

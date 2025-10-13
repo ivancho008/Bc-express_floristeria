@@ -1,5 +1,3 @@
-
-// flowers.routes.js
 // Router for Flower entity endpoints
 const express = require('express');
 const router = express.Router();

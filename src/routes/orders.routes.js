@@ -1,5 +1,3 @@
-
-// orders.routes.js
 // Router for Order entity endpoints
 const express = require('express');
 const router = express.Router();

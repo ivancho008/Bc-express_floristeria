@@ -1,5 +1,3 @@
-// src/data/flowersData.js
-
 // Counters to simulate ID assignment
 let nextFlowerId = 11;
 let nextBouquetId = 9;
