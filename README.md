@@ -1,3 +1,113 @@
+# Floristería API — Práctica 4: Routing Avanzado
+
+Este repositorio contiene la solución completa de la Práctica 4 (Routing Avanzado) del bootcamp. El código está organizado según las buenas prácticas del curso: rutas modulares, controladores separados, validación en POST/PUT y tests automatizados.
+
+Todas las instrucciones, ejemplos y notas de entrega están en español para que la entrega sea clara y consistente.
+
+## Qué contiene
+- 15 endpoints (5 por entidad): `flowers`, `bouquets`, `orders`.
+- Validación en `POST` / `PUT` que devuelve `400` cuando faltan campos.
+- Manejo de `404` para IDs no encontrados.
+- Datos en memoria (`src/data/flowersData.js`) con registros de ejemplo (nombres colombianos).
+- Documentación OpenAPI en `_docs/api/openapi.yml` y disponible en `/api-docs` cuando el servidor está en marcha.
+- Tests con Jest + Supertest en `tests/` que cubren CRUD y validaciones.
+- Workflow de CI (`.github/workflows/ci.yml`) que ejecuta tests en push/PR.
+
+## Requisitos previos
+- Node.js (recomendado 18+)
+- pnpm (requerido por el bootcamp)
+
+## Instalación y ejecución local
+
+1. Clonar el repositorio
+
+```powershell
+git clone <repository-url>
+cd Bc-express_floristeria
+```
+
+2. Instalar dependencias
+
+```powershell
+pnpm install
+```
+
+3. Ejecutar la aplicación
+
+```powershell
+pnpm start
+# o
+node server.js
+```
+
+4. Abrir la documentación OpenAPI (Swagger UI)
+
+Visita: http://localhost:3000/api-docs
+
+## Ejecutar tests
+
+```powershell
+pnpm test
+```
+
+Los tests incluyen casos para: GET all, POST, GET by id, PUT, DELETE y validaciones `400` para las tres entidades.
+
+## Endpoints principales (resumen)
+
+- GET /api/flowers
+- GET /api/flowers/:id
+- POST /api/flowers
+- PUT /api/flowers/:id
+- DELETE /api/flowers/:id
+
+- GET /api/bouquets
+- GET /api/bouquets/:id
+- POST /api/bouquets
+- PUT /api/bouquets/:id
+- DELETE /api/bouquets/:id
+
+- GET /api/orders
+- GET /api/orders/:id
+- POST /api/orders
+- PUT /api/orders/:id
+- DELETE /api/orders/:id
+
+Ejemplos de body (JSON): revisar `_docs/api/openapi.yml` para ejemplos y esquemas.
+
+## Entrega / PR
+
+1. Crear rama para entrega
+
+```powershell
+git checkout -b feature/practice-4-complete
+git add .
+git commit -m "Complete Práctica 4 — Routing Avanzado: endpoints, tests, docs, CI"
+git push origin feature/practice-4-complete
+```
+
+2. Abrir Pull Request al repositorio del profesor (o al remoto que uses). En la descripción puedes pegar el contenido de `DELIVERY.md`.
+
+3. Comprobar que CI pasa y adjuntar captura de `/api-docs` si lo solicita el profesor.
+
+## Notas sobre buenas prácticas
+- Nombres, claves JSON y rutas están en inglés (requerimiento del bootcamp). Los comentarios en los archivos fuente se mantienen en inglés para facilitar la continuación del trabajo.
+- La documentación para el entregable y las instrucciones están en español, tal como solicitaste.
+
+## Archivos importantes
+- `server.js` — arranca la app y monta las rutas.
+- `src/routes/*.js` — definición de rutas (modular).
+- `src/controllers/*.js` — lógica de cada endpoint (validation, CRUD).
+- `src/data/flowersData.js` — datos en memoria y funciones para asignar IDs.
+- `_docs/api/openapi.yml` — especificación OpenAPI completa montada en `/api-docs`.
+- `tests/` — tests automatizados con Jest + Supertest.
+- `.github/workflows/ci.yml` — CI que ejecuta tests en push/PR.
+
+## Si necesitas que yo haga el push/PR
+Si quieres que haga el push y abra el PR por ti, explícame cómo me das acceso (no puedo conectarme a tu GitHub sin tus credenciales). Alternativamente, te doy los comandos exactos para ejecutar en PowerShell.
+
+---
+
+Si quieres, ahora creo la rama `feature/practice-4-complete` localmente y te doy los comandos exactos para subirla. ¿Procedo a crear la rama y preparar el commit final? 
 # Floristería API - Proyecto Express.js
 
 Este trabajo corresponde a la práctica avanzada de routing para el dominio de Floristería, siguiendo los lineamientos del bootcamp Express.js. Aquí se implementan rutas modulares, validación estricta y operaciones CRUD completas para tres entidades principales.

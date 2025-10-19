@@ -1,0 +1,434 @@
+openapi: 3.0.0
+info:
+  title: Floristería API
+  version: 1.0.0
+  description: API for Flowers, Bouquets and Orders (Bootcamp Practice)
+servers:
+  - url: http://localhost:3000
+
+components:
+  schemas:
+    Flower:
+      type: object
+      required:
+        - id
+        - name
+        - color
+        - price
+        - seasonality
+        - stock
+        - origin
+        - fragrance
+        - supplier
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Orchid"
+        color:
+          type: string
+          example: "Purple"
+        price:
+          type: number
+          format: float
+          example: 8.0
+        seasonality:
+          type: string
+          example: "All year"
+        stock:
+          type: integer
+          example: 50
+        origin:
+          type: string
+          example: "Antioquia"
+        fragrance:
+          type: string
+          example: "Soft"
+        supplier:
+          type: string
+          example: "Flores Medellín"
+
+    FlowerInput:
+      type: object
+      required:
+        - name
+        - color
+        - price
+        - seasonality
+        - stock
+        - origin
+        - fragrance
+        - supplier
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+        price:
+          type: number
+        seasonality:
+          type: string
+        stock:
+          type: integer
+        origin:
+          type: string
+        fragrance:
+          type: string
+        supplier:
+          type: string
+
+    Bouquet:
+      type: object
+      required:
+        - id
+        - name
+        - description
+        - price
+        - flowerIds
+        - occasion
+        - wrapping
+        - designer
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Colombian Love"
+        description:
+          type: string
+          example: "Twelve pink roses and red carnations."
+        price:
+          type: number
+          example: 65.0
+        flowerIds:
+          type: array
+          items:
+            type: integer
+          example: [2, 5]
+        occasion:
+          type: string
+          example: "Anniversary"
+        wrapping:
+          type: string
+          example: "Red paper"
+        designer:
+          type: string
+          example: "Maria Fernanda"
+
+    BouquetInput:
+      type: object
+      required:
+        - name
+        - description
+        - price
+        - flowerIds
+        - occasion
+        - wrapping
+        - designer
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        flowerIds:
+          type: array
+          items:
+            type: integer
+        occasion:
+          type: string
+        wrapping:
+          type: string
+        designer:
+          type: string
+
+    Order:
+      type: object
+      required:
+        - id
+        - customerName
+        - bouquetId
+        - deliveryDate
+        - status
+        - address
+        - phone
+        - paymentMethod
+        - note
+      properties:
+        id:
+          type: integer
+          example: 1
+        customerName:
+          type: string
+          example: "Jorge Ramirez"
+        bouquetId:
+          type: integer
+          example: 1
+        deliveryDate:
+          type: string
+          format: date
+          example: '2025-11-01'
+        status:
+          type: string
+          example: "Pending"
+        address:
+          type: string
+          example: "Cra 15 #45-23, Bogotá"
+        phone:
+          type: string
+          example: '3104567890'
+        paymentMethod:
+          type: string
+          example: "Nequi"
+        note:
+          type: string
+          example: "Deliver before 10am"
+
+    OrderInput:
+      type: object
+      required:
+        - customerName
+        - bouquetId
+        - deliveryDate
+        - status
+        - address
+        - phone
+        - paymentMethod
+        - note
+      properties:
+        customerName:
+          type: string
+        bouquetId:
+          type: integer
+        deliveryDate:
+          type: string
+          format: date
+        status:
+          type: string
+        address:
+          type: string
+        phone:
+          type: string
+        paymentMethod:
+          type: string
+        note:
+          type: string
+
+paths:
+  /api/flowers:
+    get:
+      summary: Get all flowers
+      responses:
+        '200':
+          description: A list of flowers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Flower'
+    post:
+      summary: Create a flower
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlowerInput'
+      responses:
+        '201':
+          description: Flower created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flower'
+
+  /api/flowers/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get flower by ID
+      responses:
+        '200':
+          description: Flower found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flower'
+        '404':
+          description: Not found
+    put:
+      summary: Update a flower
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FlowerInput'
+      responses:
+        '200':
+          description: Updated flower
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Flower'
+        '400':
+          description: Validation error
+        '404':
+          description: Not found
+    delete:
+      summary: Delete a flower
+      responses:
+        '200':
+          description: Deletion success
+
+  /api/bouquets:
+    get:
+      summary: Get all bouquets
+      responses:
+        '200':
+          description: A list of bouquets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bouquet'
+    post:
+      summary: Create a bouquet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BouquetInput'
+      responses:
+        '201':
+          description: Bouquet created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bouquet'
+
+  /api/bouquets/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get bouquet by ID
+      responses:
+        '200':
+          description: Bouquet found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bouquet'
+        '404':
+          description: Not found
+    put:
+      summary: Update a bouquet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BouquetInput'
+      responses:
+        '200':
+          description: Updated bouquet
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bouquet'
+        '400':
+          description: Validation error
+        '404':
+          description: Not found
+    delete:
+      summary: Delete a bouquet
+      responses:
+        '200':
+          description: Deletion success
+
+  /api/orders:
+    get:
+      summary: Get all orders
+      responses:
+        '200':
+          description: A list of orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+    post:
+      summary: Create an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderInput'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+
+  /api/orders/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get order by ID
+      responses:
+        '200':
+          description: Order found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '404':
+          description: Not found
+    put:
+      summary: Update an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderInput'
+      responses:
+        '200':
+          description: Updated order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Validation error
+        '404':
+          description: Not found
+    delete:
+      summary: Delete an order
+      responses:
+        '200':
+          description: Deletion success
+
