@@ -1,9 +1,0 @@
-# Esta carpeta contiene asignaciones personalizadas privadas
-# NO SUBIR A GITHUB
-
-# Ignorar todo el contenido
-*
-
-# Excepto este archivo
-!.gitignore
-!README.md
