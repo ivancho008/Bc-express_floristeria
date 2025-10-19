@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discord Community
+    url: https://discord.gg/bc-express
+    about: Únete a nuestra comunidad de Discord para chat en tiempo real y networking
+  - name: 📚 Documentación
+    url: https://github.com/user/bc-express/tree/main/_docs
+    about: Consulta nuestra documentación técnica completa
+  - name: 🎓 SENA CGMLTI
+    url: https://www.sena.edu.co/
+    about: Sitio oficial del SENA - Centro de Gestión de Mercados, Logística y TI

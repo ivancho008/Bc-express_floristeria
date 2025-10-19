@@ -1,0 +1,495 @@
+# Bootcamp bc-express - .gitignore
+# Comprehensive gitignore for Express.js bootcamp project
+
+# ===================================
+# Node.js and npm/pnpm
+# ===================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# pnpm
+.pnpm-debug.log*
+.pnpm-store/
+
+# ===================================
+# Environment Variables
+# ===================================
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===================================
+# TypeScript
+# ===================================
+
+# TypeScript compiled output
+dist/
+build/
+*.tsbuildinfo
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
+
+# ===================================
+# Build and Distribution
+# ===================================
+
+# Build directories
+/dist
+/build
+/out
+/tmp
+/temp
+
+# Webpack
+.webpack/
+
+# Vite
+dist-ssr
+*.local
+
+# Rollup
+.rollup.cache
+
+# ===================================
+# Logs
+# ===================================
+
+# Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===================================
+# Database
+# ===================================
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Database dumps
+*.sql
+*.dump
+
+# Prisma
+prisma/migrations/dev.db*
+
+# ===================================
+# Docker
+# ===================================
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# ===================================
+# Testing
+# ===================================
+
+# Jest
+coverage/
+.jest-cache/
+
+# Vitest
+.vitest/
+
+# Test results
+test-results/
+junit.xml
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# ===================================
+# Operating Systems
+# ===================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===================================
+# IDEs and Editors
+# ===================================
+
+# Visual Studio Code
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-snippets
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/.ropeproject
+# Keep some VS Code files for project consistency
+!.vscode/settings.json.example
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# WebStorm
+.webstorm/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+*~
+tags
+[._]*.un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===================================
+# Package Managers
+# ===================================
+
+# npm
+package-lock.json
+npm-shrinkwrap.json
+
+# Yarn
+yarn.lock
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# pnpm (Keep pnpm-lock.yaml for consistency)
+# pnpm-lock.yaml - We keep this for reproducible builds
+
+# ===================================
+# Bootcamp Specific
+# ===================================
+
+# Student submissions (if any)
+submissions/
+entregas/
+
+# Temporary files from exercises
+**/temp/
+**/tmp/
+**/.temp/
+
+# Generated documentation
+docs-generated/
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ===================================
+# Security and Credentials
+# ===================================
+
+# API keys and secrets
+secrets/
+*.key
+*.pem
+*.p12
+*.crt
+*.csr
+
+# JWT secrets
+jwt.secret
+
+# ===================================
+# Monitoring and Analytics
+# ===================================
+
+# Sentry
+.sentryclirc
+
+# NewRelic
+newrelic.js
+
+# ===================================
+# Deployment
+# ===================================
+
+# Deployment artifacts
+deploy/
+deployment/
+.deploy/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes
+*.kubeconfig
+
+# ===================================
+# Miscellaneous
+# ===================================
+
+# Temporary folders
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Runtime configuration
+.runtime/
+
+# Local development only
+local/
+.local/
+
+# Storybook
+storybook-static/
+
+# ===================================
+# Educational Content (Keep These)
+# ===================================
+
+# Keep educational examples and templates
+!**/examples/**
+!**/templates/**
+!**/recursos-compartidos/**
+
+# Keep week structure
+!semana-*/
+!semana-*/**
+
+# Keep documentation
+!_docs/
+!_docs/**
+
+# Keep scripts
+!_scripts/
+!_scripts/**
+
+# ===================================
+# Auto-generated files to ignore
+# ===================================
+
+# Auto-generated by tools
+*.generated.*
+*-generated.*
+
+# Optimization files
+*.optimized.*
+
+# Minified files (except in production builds)
+*.min.js
+*.min.css
+
+# Source maps (except for debugging)
+*.map
+
+# ===================================
+# Project specific ignores
+# ===================================
+
+# Add project-specific ignores here as needed
+# Example:
+# /specific-folder-to-ignore/
+# *.specific-extension
+
+# ===================================
+# Configuración GitHub Interna
+# ===================================
+
+# Ignorar toda la carpeta .github (workflows, templates, copilot instructions)
+.github/
+
+# ===================================
+# Documentación Técnica Interna
+# ===================================
+
+# Ignorar toda la carpeta _docs (documentación interna del proyecto)
+_docs/
+
+# ===================================
+# Scripts de Automatización Internos
+# ===================================
+
+# Ignorar toda la carpeta _scripts (scripts internos del instructor)
+_scripts/
+
+# ===================================
+# Asignaciones Privadas de Dominios
+# ===================================
+
+# CRÍTICO: Nunca subir asignaciones personalizadas a GitHub
+# Estas carpetas contienen información privada de cada aprendiz
+**/4-asignacion-dominios/*.md
+!**/4-asignacion-dominios/.gitkeep
+!**/4-asignacion-dominios/README.md
+!**/4-asignacion-dominios/TEMPLATE.md
+
+# Archivos de asignación temporal
+**/4-asignacion-dominios/aprendiz-*.md
+**/4-asignacion-dominios/listado-asignaciones.*
+
+# Carpetas de fichas con asignaciones personalizadas (NUNCA SUBIR)
+**/4-asignacion-dominios/[0-9]*/**
+
+# ===================================
+# Keep important files
+# ===================================
+
+# Explicitly keep important configuration files
+!.gitignore
+!.editorconfig
+!.markdownlint.yml
+!.github/
+!.github/**
+!.vscode/extensions.json
+!.vscode/settings.json.example
+!docker-compose.yml
+!docker-compose.*.yml
+!Dockerfile*
+!*.md
+!*.json
+!*.yml
+!*.yaml
+
+# Keep package.json files for each week's exercises
+!**/package.json
+!**/tsconfig.json
+!**/jest.config.js
+!**/.eslintrc.*
+!**/prettier.config.*

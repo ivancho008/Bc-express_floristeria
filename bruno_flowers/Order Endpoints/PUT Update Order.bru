@@ -6,8 +6,17 @@ meta {
 
 put {
   url: http://localhost:3000/api/orders/1
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "customerName": "Ivan Yate",
+    "bouquetId": 1,
+    "deliveryDate": "2025-11-01",
+    "status": "Delivered"
+  }
 }
 
 settings {

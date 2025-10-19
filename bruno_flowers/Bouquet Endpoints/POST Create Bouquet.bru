@@ -6,8 +6,17 @@ meta {
 
 post {
   url: http://localhost:3000/api/bouquets
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "name": "Autumn Mix",
+    "description": "Bouquet with tulips and sunflowers.",
+    "price": 30.00,
+    "flowerIds": [1, 3]
+  }
 }
 
 settings {
